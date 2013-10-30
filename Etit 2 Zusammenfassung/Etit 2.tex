@@ -1,0 +1,615 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{a4wide}
+\author{Maximilian Reuter}
+\title{Zusammenfassung ETiT II SS12}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\part{Elektrostatisches Feld}
+
+\section{Konstanten}
+
+$c_0 = 299 792 458 \frac{m}{s}$\\
+$\mu_0 = 4\pi \cdot 10^{-7} \frac{Vs}{Am}$\\
+$\epsilon_0 = 8,854 \cdot 10^{-12}$ (durch $\epsilon_0 \cdot \mu_0 \cdot c^2_0 = 1$)\\
+$K = \frac{1}{4\pi\epsilon_0} = 10^{-7} \cdot c^2_0$\\
+$\epsilon_r$ : temperaturunabhängig, oberhalb der ferroelektrischen Curie-Temperatur starkes absinken.\\
+\section{Ladungsformen}
+
+Raumladungsdichte: $\rho = \lim\limits_{\Delta V \to 0} {\frac{\Delta Q}{\Delta V} = \frac{dQ}{dV}}$\\
+Ladung durch Ortsfunktion $\rho(x,y,z)$ berechnen: $Q = \int\limits_V {\rho\ dV} = \iiint\limits_V{\rho(x,y,z)\ dx\ dy\ dz}$\\
+Flächenladungsdichte: $\sigma = \lim\limits_{\Delta A \to 0}{\frac{\Delta Q}{\Delta A}}$\\
+Bei einem Leiter mit $Lange >> Durchmesser$ $\rightarrow$ Linienladung.\\
+Linienladungsdichte: $\lambda = \lim\limits_{\Delta l \to 0}{\frac{\Delta Q}{\Delta l}} = \frac{dQ}{dl}$
+
+\section{Das Coulombsche Gesetz / Gravitationsgesetz}
+Kraftwirkung zwischen zwei Ladungen $Q_1$ und $Q_2$: \[\vec{F} = \frac{1}{4\pi \epsilon_0}\cdot \frac{Q_1 \cdot Q_2}{r^2}\cdot d\vec{r_{0}}\]
+Kraftwirkung zwischen zwei Massen $m_1$ und $m_2$: \[F_m = G\cdot \frac{m_1 \cdot m_2}{r^2}\]
+
+\section{Elektrisches Feld}
+Elektrische Feldstärke:
+\[\vec{E}= \frac{\vec{F}}{Q}\]
+Elektrische Verschiebungsdichte:
+\[\vec{D} = \epsilon_0 \cdot \vec{E} = \frac{\Delta\Psi}{\Delta A}= \frac{Q}{4\pi r^2}\cdot \vec{r}\]\\
+E-Feld um Punktladung (Abnahme $\tilde{} \frac{1}{r^2}$): 
+\[\vec{E} = \frac{Q}{4\pi\epsilon_0 r^2} \cdot \vec{r}\]
+Arbeit um Ladung im Feld zu verschieben:
+\[\Delta W_{mech} = F\cdot\Delta s = q \cdot E \cdot \Delta s\]
+Potentielle Energie der Ladung nimmt um gleichen Betrag ab $\rightarrow \Delta U = E\cdot \Delta s$\\
+Verschiebung in beliebige Richtung:
+\[\Delta W_{mech} = F\cdot \Delta s \cdot cos\alpha = \left|\vec{F}\right| \cdot \left|\Delta\vec{s}\right| \cdot cos (\vec{F}, \Delta\vec{s})\]
+Linienintegral:
+\[W_{mech} = q\int\limits_A^B{\vec{E} \cdot d\vec{s}}\]
+Bei geschlossenem Weg ist das Feld Wirbelfrei, wenn:
+\[\oint\limits_ {L}{\vec{E}\cdot d\vec{s}} = 0\]
+Das Linienintegral der E-Feldstärke ist weg-unabhängig. Es kommt nur auf den Anfangs- und Endpunkt an!
+\[U_{AB} = \int\limits_{A}^B{\vec{E} \cdot d\vec{s}}\]
+Potential in Bezug auf Punkt $0$: \[\varphi_v = U_{v0} = \int\limits_v^0{\vec{E}\cdot d\vec{s}} = -\int\limits_0^v{\vec{E}\cdot d\vec{s}}\]
+Gradient:
+\[E_x = -\frac{d\varphi}{dx},\ E_y = -\frac{d\varphi}{dy},\ E_z = -\frac{d\varphi}{dz} \rightarrow \vec{E} = -grad\varphi\]
+
+\section{Elektrischer Fluss}
+Elektrischer Fluss $\Delta \Psi = \Delta Q$: \[\Delta\Psi = D \cdot A ( = \left|\vec{D}\right|\left|\vec{A}\right| \cdot cos(\vec{D}), \Delta\vec{A})\]
+Bei beliebiger, jedoch nicht geschlossener Fläche
+\[\Psi = \int\limits_A{\vec{D} \cdot dA}\]
+Gaußscher Satz der Elektrostatik: 
+\[Q = \oint\limits_A{\vec{D} \cdot d\vec{A}}\]
+
+
+\section{Potentialfunktionen}
+\subsection{Punktladung}
+Spannung 
+\[U_{PB} = \frac{Q}{4\pi\epsilon}(\frac{1}{r_P}-\frac{1}{r_B}) = \varphi(P)-\varphi(B)\]
+Ohne Festlegung eines Bezugspunkts: $\varphi(P) = \frac{Q}{4\pi\epsilon}\frac{1}{r} +const$ (bei weit entferntem oder geerdetem Bezugspunkt: $const = 0$)
+
+\subsection{Dipol}
+$b$: Abstand zwischen den Ladungsschwerpunkten
+\[\varphi(P) = \frac{Q}{4\pi\epsilon} \cdot \frac{r_- -r_+}{r_-r_+}\]
+Näherung für sehr kleines $b$:
+\[\varphi(P) = \frac{p \cdot cos\vartheta}{4\pi\epsilon r^2}\]
+mit elektrischem Dipolmoment \[p = Q \cdot b\]
+Punktladung: Potentialabnahme mit $\frac{1}{r}$\\
+Dipol: Potentialabnahme mit $\frac{1}{r^2}$,  da sich die beiden Wirkungen zunehmend aufheben.\\
+
+\subsection{Linienladung}
+\[dQ = \lambda \cdot ds \rightarrow d\varphi(P) = \frac{\lambda ds}{4\pi\epsilon r}\]
+\[\varphi(P) = \frac{\lambda}{4\pi\epsilon}\int\limits_{-l}^{+l}{\frac{1}{\sqrt{\rho^2+(z-s)^2}}ds} = [\frac{\lambda}{4\pi\epsilon} \cdot \text{arsh} (\frac{s-z}{\rho}]_{-l}^{+l})\] 
+mit 
+\[\text{arsh} (x) = ln(x+\sqrt{x^2+1})\]
+\\
+Besser (für Zylindersymmetrische Anordnungen):
+\[Q = \lambda l = \int\limits_{Mantel}{\vec{D} \cdot d\vec{A}} = D(\rho)2\pi\rho l\]
+Feldstärke um die Ladung:
+\[E(\rho) = \frac{\lambda}{2\pi\epsilon \rho}\]
+Aus
+\[U_{PB} = \int\limits_{\rho_P}^{\rho_B}{E(\rho)d\rho}= \frac{\lambda}{2\pi\epsilon}[ln(\rho)]_{\rho_P}^{\rho_B}\]
+folgt:
+\[\varphi(\rho) = \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_B}{\rho}\]
+
+\section{Influenz}
+Flächenladungsdichte:
+\[\sigma = \frac{dQ}{dA} = \frac{d\Psi}{dA}= D\]
+
+\subsection{Feldmühle}
+\[\sigma = D = \epsilon_0 \cdot E\]
+Ladung auf Fläche $A$:
+\[Q = \int\limits_{(A)}{\sigma dA} = \int\limits_{(A)}{\epsilon_0 EdA} = \epsilon_0 EA\]
+
+\section{Kapazität}
+\[C = \frac{Q}{U}\]
+Spannung zwischen Ladungen:
+\[U = Ed\]
+
+\subsection{Kugelkondensator}
+Kapazität:
+\[C = 4\pi\epsilon \frac{r_1r_2}{r_2-r_1}\]
+Spannung zwischen den Elektroden:
+\[U_{12} = \int\limits_{r_1}^{r_2}{Edr} = \frac{Q}{4\pi\epsilon}(\frac{1}{r_1}-\frac{1}{r_2})\]
+Maximal auftretende Feldstärke (am inneren Rand des Dielektrikums):
+\[E_{max} = \frac{U}{r_1}\frac{r_2}{r_2-r_1}\]
+Minimum der maximalen Feldstärke ($E_{max, min}$):
+\[\frac{dE_{max}}{dr_1} = 0 \rightarrow r_{1,opt} = \frac{r_2}{2}\]
+Sonderfall,  Kapazität einer Kugel frei im Raum: 
+\[C = 4\pi\epsilon r_1\]
+Dabei auftretende Feldstärke direkt an der Hülle:
+$E_{max} = \frac{U}{r}$
+
+\subsection{Koaxialer Zylinder}
+$\rho$ = Radius\\
+Ladung auf dem Kondensator
+\[Q = \lambda z = \oint\limits_A{\vec{D}\cdot d\vec{A}} = D(\rho) \cdot A(\rho) = D(\rho) \cdot 2\pi\rho z\]
+Feldstärke um im Zylinder
+\[E(\rho) = \frac{\lambda}{2\pi\epsilon\rho}\]
+Längenbezogene Kapazität:
+\[C' = \frac{C}{z} = \frac{\lambda}{U} = \frac{2\pi\epsilon}{ln\frac{\rho_2}{\rho_1}}\]
+Minimum der Maximalen Feldstärke:
+\[\frac{dE_{max}}{d\frac{\rho_2}{\rho_1}} = 0 \rightarrow \rho_{1,opt} = \frac{\rho_2}{e}\]
+
+\subsubsection{Geschichtete Dielektrika}
+Geschichtete Dielektrika ($\epsilon_1, \rho_1 ...\rho_2$ und $\epsilon_2, \rho_2 ... \rho_3$):
+\[U_{ges} = U_{\rho_1\rho_2} + U_{\rho_2\rho_3} = \frac{\lambda}{2\pi}(\frac{1}{\epsilon_1}ln\frac{\rho_2}{\rho_1}+\frac{1}{\epsilon_2}ln\frac{\rho_3}{\rho_2})\]
+Längenbezogene Kapazität:
+\[C' = \frac{\lambda}{U_{ges}} = \frac{2\pi}{\frac{1}{\epsilon_1}ln\frac{\rho_2}{\rho_1}+\frac{1}{\epsilon_2}ln\frac{\rho_3}{\rho_2}}\]
+Feldstärkeverhältnisse:
+\[\frac{E_2(\rho_2)}{E_1(\rho_2)} = \frac{\epsilon_1}{\epsilon_2}\]
+Das Maximum der Feldstärke tritt jeweils am Innenradius des Dielektrikums auf!
+\[\frac{E_{max1}}{E_{max2}}=\frac{\epsilon_2 \rho_2}{\epsilon_1 \rho_1}\]
+
+\subsection{Superposition von Potentialen}
+Zwei parallele Linienladungen, ungleichen Vorzeichens, mit Radius $\rho_0$, Punkt $P$ mit $\varphi_+$, $\varphi_-$:
+\[C' = \frac{\lambda}{\varphi_+ - \varphi_-} = \frac{\pi\epsilon}{ln\frac{f}{\rho_0}}\]
+Potential:
+\[\varphi(P) = \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_-}{\rho_+}\]
+Maximal auftretende Feldstärke (an der Leiteroberfläche):
+\[E_{max} = \frac{U}{2\rho_0 ln\frac{d}{\rho_0}}\]
+(Gleiche Vorzeichen:
+\[\varphi(P) = \frac{\lambda}{2\pi \epsilon}\cdot ln\frac{\rho_B}{\rho_1} + \frac{\lambda}{2\pi\epsilon}\cdot ln\frac{\rho_B}{\rho_2} =  \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_B^2}{\rho_1\rho_2})\]
+
+\section{Feldbilder}
+d = Abstand zwischen zwei Äquipotentiallinien.
+\[\Delta U = d\cdot E\]
+$b$ : Abstand zwischen zwei Feldlinien.\\
+$\Delta Q$ : Ladung auf den Elektroden.\\
+\[\Delta Q = D\cdot \Delta A = \epsilon E\cdot \Delta A = \epsilon Ebz\]
+$\Delta C$ : Teilkapazität pro Kästchen mit Seitenlängen d und b.
+\[\Delta C = \frac{\Delta Q}{\Delta U} = \frac{\epsilon E b z}{dE} = \epsilon z \frac{b}{d} = const.\]
+Längebezogene Kapazität:
+\[\Delta C' = \frac{\Delta C}{z}= \epsilon \frac{b}{d} = const.\]
+Der gesamte Feldraum kann als Reihen- und Parallelschaltung gleicher (Längen-bezogener) Teilkapazitäten $\Delta C'$ verstanden werden, für die gilt:
+\[\Delta C' = \frac{\epsilon b}{d}\]
+Für $\frac{b}{d} = 1$ (Quadrate) gilt:
+\[\Delta C' = \epsilon \rightarrow C' = \epsilon \frac{n}{m-1}\]
+mit $n$ = Anzahl der Feldlinien und $m$ = Zahl der Äquipotentiallinien (inc Oberfläche). Nur gültig für 2D Felder.
+
+\section{Energie im elektrischen Feld}
+Allgemein:
+\[W_e = \int\limits_0^\infty{u(t)i(t)dt} = \int\limits_0^{Q_e}{udQ}\]
+Plattenkondensator mit Abstand $d$:\\
+\[W_e = \int\limits_0^{Q_e}{udQ} = \int\limits_0^{D_e}{EdAdD} = Ad\int\limits_0^{D_e}{EdD}\]
+ mit $Ad = V$ ist das vom Feld durchsetzte Volumen:\\
+\[W_e = V \int\limits_0^{D_e}{EdD} = \frac{1}{2} CU^2\]
+Energiedichte:
+\[w_e = \frac{W_e}{V} = \int\limits_0^{D_e}{EdD} = \frac{1}{2} \cdot \frac{D_e^2}{\epsilon} = \frac{1}{2} DE\]
+Aufzuwendende Kraft bei Vergrößerung der Kapazität:
+\[F_x = -\frac{dW_e^{(Q)}}{dx} = \frac{Q^2}{2\epsilon A}\]
+
+\section{Kräfte im elektrostatischen Feld}
+Energieinhalt:
+\[W_e = \frac{1}{2} \frac{Q^2\cdot (d-x)}{2\epsilon A}\]
+Fremdfeld einer Platte: 
+\[Q = \oint\limits_A{\vec{D}\cdot dA} = D 2 A = \epsilon E 2 A\]
+Kraft auf eine Kondensatorplatte:
+\[F = \frac{DEA}{2} = \frac{Q^2}{2 \epsilon A}=\frac{1}{2} Q\cdot E = \frac{U^2\epsilon A}{2d^2}\]
+Kraftdichte $\sigma$:
+\[\sigma = \frac{1}{2}\epsilon E^2 = \frac{1}{2} DE\]
+Energiedichte $w_e$: 
+\[w_e = \sigma\]
+Kinetische Energie von Probeladungen im Feld: 
+\[W_{kin} = \frac{1}{2}mv^2 = QU\]
+
+\section{Bedingungen an Grenzflächen geschichteter Dielektrika}
+\[\vec{D} = \epsilon \cdot \vec{E}\]
+\[D_{1normal} = D_{2normal}\]
+\[E_{1tangential} = D_{2tangential}\]
+
+\subsection{Quer geschichtete Dielektrika}
+\[D_1 = D_2 (=D_{1normal} = D_{2normal})\]
+\[\frac{E_1}{E_2} = \frac{\epsilon_{r2}}{\epsilon_{r1}}\]
+\[E_2 = E_1 \frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+\[U = U_1 +U_2 = E_1 d_1+E_1 d_2\frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+
+\subsection{Längs geschichtete Dielektrika}
+\[\frac{D_1}{D_2} = \frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+\[E_1 = E_2\]
+
+\subsection{Schräg geschichtetes Dielektrikum}
+Wie bekannt:
+\[E_{1t} = E_{2t}\]
+\[D_{1n} = E_{2n}\]
+
+Winkel $\alpha = \measuredangle{(\vec{E_n}, \vec{E})}$:
+\[\frac{\tan\alpha_1}{\tan\alpha_2} = \frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+Feldlininen werden beim Übergang in ein Dielektrikum mit größerer relativer Dielektrizitätszahl von der Normalen weg, also zur Grenzfläche hin gebrochen.
+
+
+\part{Stationäres elektrisches Strömungsfeld}
+\section{Basics}
+Zusammenhang zwischen Strom und Stromdichte:
+\[\Delta I = \vec{J} \cdot \Delta \vec{A}\]
+Betrag:
+\[\rightarrow \left| \Delta I\right| = J_n \Delta A = J\Delta A \cdot cos \alpha\]
+Für eine beliebige gekrümmte Fläche gilt:
+\[I = \int\limits_A{\vec{J} \cdot d\vec{A}}\]
+Analog zu $\sum{I} = 0$:
+\[\oint\limits_A{\vec{J} \cdot d\vec{A}} = 0\]
+
+\section{Ohmsches Gesetz}
+Das Feldbild der Stromdichte in Leitern entspricht dem der Feldstärke in Dielektrika für Leitwert und Widerstand konstant:\\
+\[\vec{E} = \rho \vec{J}\] und \[\vec{J} = \gamma \vec{E}\] mit $rho$ = spez. Widerstand und $gamma$ = spez. Leitwert\\
+
+\section{Leistungsdichte im Strömungsfeld}
+Im homogenen Feld:
+\[P=I^2R\]
+\[\Delta P = (\Delta I)^2\frac{\Delta l}{\gamma \Delta A} = J^2 \frac{\Delta l \Delta A}{\gamma}\]
+\[p = \frac{\Delta P}{\Delta V} =\frac{J^2}{\gamma}=EJ =\gamma E^2\]
+
+\section{Relaxationszeitkonstante}
+Zeitkonstante $\tau$:
+\[\tau = RC = \frac{epsilon}{\gamma}\]
+\[u = U_0e^{\frac{-t}{\tau}}\]
+
+Entscheidung ob ein langsam  veränderliches Feld als Strömungsfeld oder elektro(quasi)statisches Feld zu behandeln ist:\\
+elektro(quasi)statisch:
+\[\frac{T}{4}<< \tau\]
+\[T_a << \tau\]
+Strömungsfeld:
+\[\frac{T}{4}>>\tau\]
+\[T_a >> \tau\]
+mit $T$ = Periodendauer periodischer Größen und $T_a$ = Anstiegszeit transienter Größen.
+
+\section{Berechnung von Widerständen}
+\subsection{Methode 1: Allgemeingültige Methode}
+\[R=\frac{U}{I}= \frac{\int\limits_a^b{\vec{E}d\vec{s}}}{\int\limits_A{\vec{J}d\vec{A}}} =\frac{\int\limits_a^b{\vec{E}d\vec{s}}}{\gamma \int\limits_A{\vec{E}d\vec{A}}} \]
+Bei Kenntnis der Potentialfunktion:
+\[R=\frac{U}{I} = \frac{\varphi_+ - \varphi_-}{I}\]
+
+\subsection{Methode 2: Alternative für homogene Strömungen}
+über dR oder dG integrieren, z.B koaxiale Zylinderanordnung:
+\[ R = \int\limits_{\rho_1}^{\rho_2}{dR} = \int\limits_{\rho_1}^{\rho_2}{\frac{d\rho}{\gamma 2 \pi \rho l_{Zyl}}} = \frac{1}{\gamma 2 \pi l_{Zyl}} \cdot ln\frac{\rho_2}{\rho_1}\]
+oder stromdurchflossener Bügel ($b$ = Breite):
+\[dG = \frac{\gamma A}{l} = \frac{\gamma bd\rho}{\pi \rho}\]
+\[G = \int\limits_{\rho_1}^{\rho_2}{dG} = \int\limits_{\rho_1}^{\rho_2}{\frac{\gamma b\cdot d\rho}{\pi \rho}}= \frac{\gamma b}{\pi} ln\frac{\rho_2}{\rho_1}\]
+
+\subsection{Methode 3: Durch $\tau$ (bei bekannter Kapazität)}
+\[\tau = RC = \frac{\epsilon}{\gamma} \rightarrow R = \frac{\epsilon}{\gamma C}\]
+
+\section{Bedingungen an Grenzflächen}
+\subsection{Quer geschichtete Leiter}
+$\vec{E}$ und $\vec{J}$ weisen nur Tangentialkomponenten auf.
+\[\frac{E_1}{E_2} = \frac{\gamma_1}{\gamma_2}\]
+\[E_2 = E_1\frac{\gamma_1}{\gamma_2}\]
+\[U = U_1 + U_2 = E_1 d_1 + E_2 d_2 = E_1 d_1 + E_1 d_2\frac{\gamma_1}{\gamma_2}\]
+
+\subsection{Schräg geschichtete Leiter}
+$\vec{E}$ und $\vec{J}$ schneiden die Grenzflächen schräg.\\
+\[J_{xn} = \gamma_x E_{xn}\]
+\[E_{1t} = E_{1t}\]
+\[J_{1n} = J_{2n}\]
+Winkel $\alpha = \measuredangle{(\vec{E_n}, \vec{E})}$:
+\[\frac{\tan\alpha_1}{\tan\alpha_2} = \frac{\gamma_1}{\gamma_2}\]
+D.h. Feld- und Strömungslinien werden beim Übergang in einen  Leiter mit größerer Leitfähigkeit von der Normalen weg zur Grenzfläche hin gebrochen.
+
+\subsection{Verschiebungsdichte}
+Grundsätzlich:
+\[J_{1n} = J_{2n}\]
+\[\gamma_1 \frac{D_{1n}}{\epsilon_1} = \gamma_2 \frac{D_{2n}}{\epsilon_2}\]
+Bedingung für $D_{1n} = D_{2n}$:
+\[\frac{\epsilon_1}{\epsilon_2} = \frac{\gamma_1}{\gamma_2}\]
+Falls $D_{1n} \neq D_{2n}$ Ausbildung einer Flächenladung:
+\[D_{2n} - D_{1n} = \sigma\]
+
+\part{Stationäre Magnetfelder}
+\section{Basics}
+Ein Magnet besitzt zwei Pole (Nordpol und Südpol) die sich nicht voneinander trennen lassen. Ein Elementarmagnet ist ein magnetischer Dipol (Abstand $l$ zwischen den Polstärken $P$).
+Magnetisches Dipolmoment:
+\[m=P\cdot l\]
+mit Polstärke $P$ (analog zur el. Ladung $Q$).
+Jeder Strom von bewegten Ladungen erzeugt ein Magnetfeld.\\
+Die magnetischen Feldlinien umschließen den Richtungssinn des Stromes im Rechtsschraubensinn (Wirbelfeld!)\\
+Darstellung: Feldlinie geht bei Kreuz nach vorne in die Ebene und kommt bei Kreis auf den Betrachter zu.
+\section{Bauarten von Magneten}
+Bauarten:
+\begin{itemize}
+\item
+Stabmagnet
+\item
+Zylindermagnet
+\item
+Kernmagnet eines Drehspulmesswerks
+\item
+Vierpoliger Läufermagnet eines Kleinmotors
+\item
+...
+\end{itemize}
+
+
+\section{Magnetische Flussdichte}
+Mag. Flussdichte $B$($[B] = H$) ist die Kraft, verursacht vom Strom $I_1$ auf einen Leiter der Länge $l$ durchflossen von dem Strom $I_2$.
+\[B_1 = \frac{F}{I_2 l} = \frac{\mu I_1}{2\pi \rho}, [B] = \frac{VS}{m^2} = T\]
+Magnetische Feldstärke:
+\[H = \frac{B}{\mu} = \frac{I}{2\pi \rho}, [H] = \frac{A}{m}\]
+In isotropem Medium:
+\[\vec{B} = \mu \vec{H}\]
+mit
+\[\mu = \mu_0 \mu_r\]
+$\mu_r$ ist oft keine Konstante!
+\[\mu_0 = 4\pi \cdot 10^{-7}\frac{Vs}{Am} = 4\pi \cdot 10^{-7}\frac{H}{m}\]
+\[K = 2 \cdot 10^{-7} \frac{Vs}{Am} = \frac{\mu_0}{2\pi}\]
+
+\section{Relative Permeabilität}
+\subsection{Diamagnetische Stoffe}
+Für Diamagnetische Stoffe gilt:
+\[\mu_r \leq 1\]
+Der Stoff entwickelt ein Gegenfeld zum angelegten Magnetfeld, das proportional zu diesem ist, und das angelegte Feld abschwächt.
+
+\subsection{Paramagnetische Stoffe}
+\[\mu_r > 1\]
+Stoff besteht aus kleinen Dauermagneten die durch chaotische Anordnung kein Feld bilden. Durch Magnetisierung werden die kleinen Dauermagnete ausgerichtet und verstärken das Feld.
+
+\subsection{Ferromagnetische Stoffe}
+\[\mu_r >> 1\]
+Kleine Dauermagnete sind in Weißschen Bezirken zusammen ausgerichtet, insgesamt heben sich die Wirkungen aller Weißschen Bezirke allerdings im Normalfall auf. Abhängig von angelegtem Magnetfeld richten sich immer mehr Bezirke aus $\rightarrow$ nicht linear! Wenn alle Bezirke ausgerichtet sind tritt die magnetische Sättigung ein.\\
+Oberhalb der Curie-Temperatur verschwindet der Ferromagnetismus und der Stoff wird Paramagnetisch (reversibel)
+
+\section{Kraft auf Leiter im Magnetfeld}
+\subsection{Kraft auf zwei parallele Leiter}
+Formel:
+\[F = \frac{\mu I_1 I_2 l}{2\pi \rho}\]
+mit $\frac{1}{2\pi \rho}$ aus der Zylindersymmetrie.
+
+\subsection{Kräfte auf andere Leiter}
+Kraft auf einen geraden Leiter:
+\[\vec{F} = I \vec{l} \times \vec{B}\]
+(Achtung: $\vec{l}\times \vec{B} = - \vec{B} \times \vec{l}$)\\
+Wenn das Magnetfeld senkrecht auf einem geraden Leiter der Länge $l$ durchflossen von $I$ steht gilt:
+\[F = B I l\]
+Für Winkel $\alpha$ zwischen geradem Leiter und Magnetfeldlinien:
+\[F = B I l \cdot \sin \alpha\]
+Allgemein gilt für gekrümmte Leiter:
+\[\vec{F} = I\int\limits_L{d\vec{s}\times \vec{B}}\]
+Kraft auf elektrische Strömung in infinitesimal kleinem Volumenelement ($\vec{B}$ und $\vec{J}$ können als konstant angenommen werden):
+\[\Delta \vec{F} = \Delta V \vec{J}\times \vec{B}\]
+Kraft auf punktförmige bewegte Ladung in inhomogenem Magnetfeld:
+\[\vec{F} = Q \vec{v} \times \vec{B}\]
+
+\subsection{Drehmoment Drehspulinstrument}
+\[M_1 = N A I B\]
+
+\subsection{Hall-Effekt}
+Stromdichte mit $n_e = $ Elektronendichte in $\frac{1}{m^3}$:
+\[J = v e n_e\]
+Driftgeschwindigkeit:
+\[ v = \frac{I}{e n_e bd}\]
+Hallspannung ($K_{B0} = $ Leerlaufempfindlichkeit):
+\[ U_H = EB = vBb = \frac{I B}{e n_e d} = K_{B0} IB\]
+
+\subsection{magnetische Spannung V}
+Magnetische Spannung $V$ mit $[V] = A$:
+\[V = Hl\]
+
+\section{Durchflutungsgesetz}
+Integriert man die magnetische Feldstärke $H$ über eine geschlossene Feldlinie der Länge $L$, erhält man den verursachenden Strom $I$ ($Theta = $ Durchflutung):
+\[(N\cdot)I = \Theta = \oint\limits_L{\vec{H} \cdot d\vec{s}} = \int\limits_A{\vec{J}\cdot d\vec{A}}\]
+z. B. Zylinderförmiger Leiter:
+\[H(\rho)=\frac{I}{2\pi\rho}\]
+für die Durchflutung außerhalb und:
+\[H(\rho)=\frac{I\rho}{2\pi \rho_0^2}\]
+für die Durchflutung innerhalb des Leiters.
+Durchflutung am Plattenkondensator:
+Während dem Ladestrom entsteht um den Leiter ein Magnetfeld:
+\[\oint\limits_L{\vec{H} d\vec{s}} = i\]
+Zwischen den Platten setzt sich der Strom als Verschiebungsstromdichte
+\[\vec{J} = \frac{d\vec{D}}{dt}\]
+fort. Um den Verschiebungsstrom entsteht ein Magnetfeld. 1. Maxwell'sche Gleichung:
+\[\oint\limits_L{\vec{H}d\vec{s}} = \int\limits_A{(\vec{J} + \frac{d\vec{D}}{dt}) d\vec{A}}\]
+
+
+\section{Gesetz von Biot-Savart (unvollständig)}
+Gesetz von Biot-Savart gibt an, welchen Beitrag ein stromdurchflossenes Leiterelement irgendeines Stromkreises zur magnetischen Flussdichte in einem beliebigen Aufpunkt P liefert.
+\[\Delta \vec{B}(P) = \frac{\mu I}{4\pi} \frac{\Delta \vec{s} \times \vec{r}}{r^2}\]
+aufintegriert:
+\[\vec{B}(P) = \frac{\mu I}{4 \pi} \oint\limits_L{\frac{d\vec{s} \times \vec{r}}{r^2}}\]
+mir $\vec{r}$ als Einheitsvektor.
+
+\section{Magnetischer Fluss}
+\[\Phi = \int\limits_A{\vec{B} \cdot d \vec{A}}\]
+Für $B$ senkrecht auf ebener Fläche $A$:
+\[\Phi = B\cdot A\]
+Die Summe der Teilflüsse die in ein Volumen austreten ist gleich der Summe derer, die austreten:
+\[\oint\limits_A{\vec{B}\cdot d\vec{A}} = 0 \]
+
+\section{Bedingungen an Grenzflächen}
+\section{Quer geschichtete Materialien}
+Analog zu Elektrostatik und Strömungsfeld:
+\[B_{1n} = B_{2n}\]
+\[H_{1t} = H_{2t}\]
+
+\section{Schräg geschichtete Materialien}
+Winkel $\alpha = \measuredangle{(\vec{H_n}, \vec{H})}$:
+\[\frac{\tan \alpha_1}{\tan \alpha_2} = \frac{\mu_1}{\mu_2}\]
+$\rightarrow$ Feldlinien werden von dem Material mit hoher Permeabilität geführt (z.B im Eisen laufen sie unabhängig vom Eintrittswinkel fast parallel zur Oberfläche und weisen eine hohe Dichte auf).
+
+\section{Magnetischer Kreis}
+\subsection{Ohmsches Gesetz des magnetischen Kreises}
+Magnetischer Widerstand ($[R_m] = \frac{A}{Vs}$):
+\[R_m = \frac{l}{\mu A}\]
+Magnetischer Leitwert:
+\[\Lambda = \frac{1}{R_m} = \frac{\mu \cdot A}{l}\]
+Magnetische Spannung:
+\[V = R_m \cdot \Phi\]
+
+\subsection{Magnetischer Kreis mit Verzweigung}
+Vorgehen:
+\begin{enumerate}
+\item
+Zählpfeile für Flüsse und Feldstärken festlegen
+\item
+Entscheidung für Umlaufrichtungen; Durchflutungen zählen bei den gewählten
+Richtungen nur dann positiv, wenn sie sich im Sinne der Rechtsschraubenregel
+verhalten.
+\end{enumerate}
+danach durch
+\[\sum{\Phi} = 0\]
+Widerstände etc. berechnen. Das magnetische Feld ist Quellenfrei!\\
+Problem: nichtlinearer Zusammenhang zwischen $\Phi$ bzw $B$ und H. $\mu$ und damit $R_m$ hängen vom gesuchten H ab!
+
+\subsection{Hystereseschleife}
+Abhängigkeit zwischen $B$ und $H$ ist in ferromagnetischem Material nicht linear. Außerdem ist die Zuordnung $B = f(H)$ nicht eindeutig, d.h. beim ansteigen von $H$ ergeben sich andere Werte für $B$ als beim absinken. Es ergibt sich die Hystereseschleife.
+
+\subsection{Magnetisierungskennlinie}
+Die Magnetisierungskennlinie entsteht durch Verbindung der Umkehrpunkte einer Hystereseschleife. Der Sättigungsbereich wird in der Praxis vermieden, da eine Steigerung der Flussdichte eine sehr hohe Steigerung der Feldstärke bedingt.
+
+\section{Scherung}
+Scherung bedeutet Einführung eines Luftspalts im Eisenkreis zur linearisierung der Magnetisierungskennlinie (v.A Vermeidung von Sättigung).
+\[H_E l_E + \frac{B}{\mu_0} l_L = \Theta\]
+Gleichung umformen zu:
+\[\frac{B}{\mu_0} l_L = \Theta - H_E l_E\]
+Scherungsgerade:
+\[B = \frac{\Theta \mu_0}{l_L} - H_E \frac{\mu_0 l_E}{l_L}\]
+Wichtige Punkte:\\
+für $H_E = 0$:
+\[B = \frac{\Theta \mu_0}{l_L}\]
+für $B = 0$:
+\[H_E = \frac{\Theta}{l_E}\]
+
+\part{Zeitlich veränderliche magnetische Felder}
+\section{Induktionsgesetz}
+Lorenzkraft:
+\[\vec{F_L} =  Q (\vec{v} \times \vec{B})\]
+entgegen wirkende Coulombkraft im Leiter:
+\[\vec{F_C} = Q \vec{E}\]
+Es entsteht ein Gleichgewichtszustand:
+\[\vec{F_L} = - \vec{F_L}\]
+Daraus ergibt sich die Feldstärke von + nach -:
+\[\vec{E} = -(\vec{v} \times \vec{B})\]
+Integriert man die Feldstärke erhält man die induzierte Spannung in einem bewegten Leiter:
+\[U_{12} = \int\limits_1^2{\vec{E} d\vec{l}} = \int\limits_1^2{-(\vec{v} \times \vec{B}) d\vec{l}} = -\frac{d\Phi}{dt}\]
+mit
+\[\Phi = \int\limits_A{\vec{B} d\vec{A}}\]
+Daraus entsteht die zweite Maxwell'sche Gleichung (nicht wirbelfrei):
+\[\oint\limits_L{\vec{E} d\vec{s}} = -\frac{d}{dt} \int\limits_A{\vec{B} d\vec{A}}\]
+Sonderfall für die Abwesenheit zeitlich sich ändernder magnetischer Felder (wirbelfreiheit):
+\[\oint\limits_L{\vec{E} d\vec{s}} = 0\]
+Achtung: Linienintegral $\int\limits_L{\vec{E} d\vec{s}}$ ist nicht mehr wegunabhängig im elektrischen Wirbelfeld:
+\[\oint\limits_L{\vec{E}d\vec{s}} = \int\limits_A^B{\vec{E} d \vec{s}} + \int\limits_B^A{\vec{E} d\vec{s}} = - \frac{d \Phi}{dt}\]
+Das bedeutet das Potential im Raum ist nicht mehr eindeutig festgelegt.
+
+\section{Generator}
+Leiterschleife im Magnetfeld:
+\[\Phi = BA \cdot \sin(\omega t)\]
+Daraus ergibt sich die induzierte Spannung:
+\[u(t) = -\frac{d\Phi}{dt}= - \omega BA\cdot \cos (\omega t)\]
+weitere Zusammenhänge:
+\[i(t) = \frac{u(t)}{R} = - \frac{\omega BA}{R}\cos (\omega t)\]
+\[P(t) = u(t) \cdot i(t) = \frac{(\omega BA)^2}{R} \cos^2(\omega t)\]
+Drehmoment:
+\[M(t) = \frac{P(t)}{\omega} = \frac{\omega}{R} (BA)^2 \cos^2 (\omega t)\]
+
+\section{Energie im magnetischen Feld}
+\[dW_m = Nid\Phi = NiAdB = V \cdot H\cdot A\cdot dB\]
+mit z.B $2 \pi \rho A = V = $ Volumen eines Ringkerns.
+Aufintegriert mit $B_e =$ Endwert der Flussdichte nach Aufbau des Magnetfeldes:
+\[W_m = V \int\limits_0^{B_e}{H\cdot dB}\]
+Energie pro Volumen:
+\[w_m = \frac{W_m}{V}\]
+für konstante Permeabilität ($B = \mu H$) gilt:
+\[w_m = \int\limits_0^{B_e}{H dB} = \frac{1}{2} \frac{B_e^2}{\mu}\]
+
+\section{Selbstinduktivität und Gegeninduktivität}
+Oft besteht ein linearer Zusammenhang zwischen $\Phi$ und $i$ (nach dem ohmschen Gesetz):
+\[-u+iR-u_{ind} = 0\]
+Proportionalitätsfaktor $L$:
+\[(N\cdot) \Phi = Li\]
+deshalb:
+\[-u+iR+L\frac{di}{dt} = 0\]
+Spannung an der Induktivität:
+\[u_L = L \frac{di}{dt}\]
+Ohmsches Gesetz des magnetischen Kreises ($\Lambda = \frac{\mu A}{l}$):
+\[N\Phi = N^2 \Lambda i = Li\]
+daher ist die Selbstinduktivität
+\[L = N^2\Lambda\]
+Magnetische Energie in einer Spule gespeichert:
+\[W_m = \frac{1}{2}LI^2\]
+
+
+\subsection{Zwei magnetisch gekoppelte Spulen}
+Gegeninduktivität bei zwei Induktivitäten (magnetisch gekoppelt)
+\[L_{12} = L_{21} = M = N_1 N_2 \Lambda\]
+Die Flüsse dabei betragen:
+\[\Phi_{12} = L_{12}i_2 =M i_2 = N_1 \Phi_{12}\]
+Spannungen an den Spulen:
+\[u_1 = L_1 \frac{di_1}{dt} + L_{12}\frac{di_2}{dt}\]
+\[u_2 = L_2 \frac{di_2}{dt} + L_{21}\frac{di_2}{dt}\]
+Gesamtenergie (in Spule 1 gespeicherte Energie) wenn $i_1 = I_1, di_1 = 0$ und in Spule zwei steigt der Strom von $0$ auf $I_2$:
+\[W_{ges} = \frac{1}{2} L_1 I_1^2 + L_{12} I_1 I_2 + \frac{1}{2} L_2 I_2^2\]
+auch für den umgekehrten Fall gültig (Indizes verändern sich jeweils). Daher gilt:
+\[L_{12} = L_{21} \]
+Magnetische Energie des Systems mit $L_{12} = L_{21} = M$:
+\[W_m = \frac{1}{2} L_1 I_1^2+MI_1 I_2 + \frac{1}{2} L_2 I_2^2\]
+Allgemein für $n$ stromdurchflossene Leiterschleifen:
+\[W_m = \frac{1}{2} \sum\limits_{\mu = 1}^{n}{\sum\limits_{\mu = 1}^{n}{L_{\mu \nu}I_{\mu} I_{\nu}}}\]
+
+\subsection{Methoden zur Berechnung von Induktivitäten}
+\subsubsection{Induktivität über magnetischen Fluss berechnen}
+Strom in der betrachteten Leiterschleife vorgeben. Danach Fluss über $\Phi = BA\cdot \cos \phi$ berechnen.
+Selbstinduktivität:
+\[L = \frac{\Phi}{i}\]
+Strom in einer der betrachteten Leiterschleifen vorgeben, danach Fluss in der anderen Leitschleife berechnen.
+Gegeninduktivität:
+\[M = \frac{\Phi_{12}}{i_2}\]
+
+\subsection{Selbstinduktivität über magnetische Feldenergie berechnen}
+Strom in betrachteter Leiterschleife vorgeben, und Formel aus folgender Beziehung formen:
+\[w_m = \frac{W_m}{V} = \frac{1}{2}\mu H^2 = \frac{1}{2}BH = \frac{1}{2} \frac{B^2}{\mu}\]
+daraus folgt:
+\[L = \frac{2W_m}{I^2}\]
+
+\subsection{Induktivitätsbelag bei bekanntem Kapazitätsbelag von Leitungen}
+\subsubsection{Doppelleitung}
+Induktivitätsbelag:
+\[L' = \frac{\mu_0}{\pi} ln\frac{d}{\rho_0}\]
+Kapazitätsbelag:
+\[C' = \frac{\pi \epsilon}{ln \frac{d}{\rho_0}}\]
+Gilt für beliebige Leitungsanordnungen:
+\[L'C' = \mu \epsilon\]
+
+\subsubsection{Koaxialleitung}
+Induktivitätsbelag:
+\[L' =  \frac{\mu}{2\pi} ln\frac{\rho_2}{\rho_1}\]
+Kapazitätsbelag:
+\[C' = \frac{2\pi \epsilon}{ln \frac{\rho_2}{\rho_1}}\]
+Gilt für beliebige Leitungsanordnungen:
+\[L'C' = \mu \epsilon\]
+
+\section{Die Maxwell'schen Gleichungen}
+\subsection{1. Gleichung: Verallgemeinertes Durchflutungsgesetz}
+Ein elektrischer Strom (Durchflutung) verursacht ein magnetisches Wirbelfeld.
+\[\oint\limits_L{\vec{H}d\vec{s}} = \int\limits_A{(\vec{J} + \frac{d\vec{D}}{dt})d\vec{A}}\]
+
+\subsection{2. Gleichung: Induktionsgesetz}
+Ein zeitlich veränderlicher magnetischer Fluss induziert ein elektrisches Wirbelfeld.
+\[\oint\limits_L{\vec{E}d\vec{s}} = -\frac{d}{dt} \int\limits_a{\vec{B} d\vec{A}}\]
+Bei abwesenheit zeitlich veränderlicher magnetischer Felder:
+\[\oint\limits_L{\vec{E}d\vec{s}} = 0\]
+Das elektrostatische Feld ist wirbelfrei.
+
+\subsection{3. Gleichung: Kontinuitätsgleichung für die magnetische Flussdichte}
+Das magnetische Feld ist quellenfrei.
+\[\oint\limits_A{\vec{B} d\vec{A}} = 0\]
+
+\subsection{4. Gleichung: Kontinuitätsgleichung für die elektrische Stromdichte}
+Das elektrische Strömungsfeld ist quellenfrei.
+\[\oint\limits_A{(\vec{J} + \frac{d\vec{A}}{dt})d\vec{A}} = 0\]
+Umformung:
+\[\oint\limits_A{\frac{d\vec{D}}{dt}d\vec{A}} = -\oint\limits_A{\vec{J}d\vec{A}} = i(t)\]
+Integration:
+\[\oint\limits_A{\vec{D}d\vec{A}} = \int{i(t)dt} = Q\]
+Die Quellen des elektrischen Feldes sind die elektrischen Ladungen.
+
+\subsection{Die Materialgleichungen}
+Elektrische Verschiebungsdichte, Permittivität, elektrische Feldstärke:
+\[\vec{D} = \epsilon \vec{E}\]
+Elektrische Stromdichte, elektrische Leitfähigkeit, elektrische Feldstärke:
+\[\vec{J} = \gamma \vec{E}\]
+Magnetische Flussdichte, Permeabilität, magnetische Feldstärke:
+\[\vec{B} = \mu \vec{H0}\]
+
+
+
+\end{document}
