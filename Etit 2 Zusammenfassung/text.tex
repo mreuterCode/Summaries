@@ -1,0 +1,298 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{a4wide}
+\author{Maximilian Reuter}
+\title{Zusammenfassung ETiT II SS12}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\part{Elektrostatisches Feld}
+
+\section{Konstanten}
+
+$c_0 = 299 792 458 \frac{m}{s}$\\
+$\mu_0 = 4\pi \cdot 10^{-7} \frac{Vs}{Am}$\\
+$\epsilon_0 = 8,854 \cdot 10^{-12}$ (durch $\epsilon_0 \cdot \mu_0 \cdot c^2_0 = 1$)\\
+$K = \frac{1}{4\pi\epsilon_0} = 10^{-7} \cdot c^2_0$\\
+$\epsilon_r$ : temperaturunabhängig, oberhalb der ferroelektrischen Curie-Temperatur starkes absinken.\\
+\section{Ladungsformen}
+
+Raumladungsdichte: $\rho = \lim\limits_{\Delta V \to 0} {\frac{\Delta Q}{\Delta V} = \frac{dQ}{dV}}$\\
+Ladung durch Ortsfunktion $\rho(x,y,z)$ berechnen: $Q = \int\limits_V {\rho\ dV} = \iiint\limits_V{\rho(x,y,z)\ dx\ dy\ dz}$\\
+Flächenladungsdichte: $\sigma = \lim\limits_{\Delta A \to 0}{\frac{\Delta Q}{\Delta A}}$\\
+Bei einem Leiter mit $Lange >> Durchmesser$ $\rightarrow$ Linienladung.\\
+Linienladungsdichte: $\lambda = \lim\limits_{\Delta l \to 0}{\frac{\Delta Q}{\Delta l}} = \frac{dQ}{dl}$
+
+\section{Das Coulombsche Gesetz / Gravitationsgesetz}
+Kraftwirkung zwischen zwei Ladungen $Q_1$ und $Q_2$: \[\vec{F} = \frac{1}{4\pi \epsilon_0}\cdot \frac{Q_1 \cdot Q_2}{r^2}\cdot d\vec{r_{0}}\]
+Kraftwirkung zwischen zwei Massen $m_1$ und $m_2$: \[F_m = G\cdot \frac{m_1 \cdot m_2}{r^2}\]
+
+\section{Elektrisches Feld}
+Elektrische Feldstärke:
+\[\vec{E}= \frac{\vec{F}}{Q}\]
+Elektrische Verschiebungsdichte:
+\[\vec{D} = \epsilon_0 \cdot \vec{E} = \frac{\Delta\Psi}{\Delta A}= \frac{Q}{4\pi r^2}\cdot \vec{r}\]\\
+E-Feld um Punktladung (Abnahme $\tilde{} \frac{1}{r^2}$): 
+\[\vec{E} = \frac{Q}{4\pi\epsilon_0 r^2} \cdot \vec{r}\]
+Arbeit um Ladung im Feld zu verschieben:
+\[\Delta W_{mech} = F\cdot\Delta s = q \cdot E \cdot \Delta s\]
+Potentielle Energie der Ladung nimmt um gleichen Betrag ab $\rightarrow \Delta U = E\cdot \Delta s$\\
+Verschiebung in beliebige Richtung:
+\[\Delta W_{mech} = F\cdot \Delta s \cdot cos\alpha = \left|\vec{F}\right| \cdot \left|\Delta\vec{s}\right| \cdot cos (\vec{F}, \Delta\vec{s})\]
+Linienintegral:
+\[W_{mech} = q\int\limits_A^B{\vec{E} \cdot d\vec{s}}\]
+Bei geschlossenem Weg ist das Feld Wirbelfrei, wenn:
+\[\oint\limits_ {L}{\vec{E}\cdot d\vec{s}} = 0\]
+Das Linienintegral der E-Feldstärke ist weg-unabhängig. Es kommt nur auf den Anfangs- und Endpunkt an!
+\[U_{AB} = \int\limits_{A}^B{\vec{E} \cdot d\vec{s}}\]
+Potential in Bezug auf Punkt $0$: \[\varphi_v = U_{v0} = \int\limits_v^0{\vec{E}\cdot d\vec{s}} = -\int\limits_0^v{\vec{E}\cdot d\vec{s}}\]
+Gradient:
+\[E_x = -\frac{d\varphi}{dx},\ E_y = -\frac{d\varphi}{dy},\ E_z = -\frac{d\varphi}{dz} \rightarrow \vec{E} = -grad\varphi\]
+
+\section{Elektrischer Fluss}
+Elektrischer Fluss $\Delta \Psi = \Delta Q$: \[\Delta\Psi = D \cdot A ( = \left|\vec{D}\right|\left|\vec{A}\right| \cdot cos(\vec{D}), \Delta\vec{A})\]
+Bei beliebiger, jedoch nicht geschlossener Fläche
+\[\Psi = \int\limits_A{\vec{D} \cdot dA}\]
+Gaußscher Satz der Elektrostatik: 
+\[Q = \oint\limits_A{\vec{D} \cdot d\vec{A}}\]
+
+
+\section{Potentialfunktionen}
+\subsection{Punktladung}
+Spannung 
+\[U_{PB} = \frac{Q}{4\pi\epsilon}(\frac{1}{r_P}-\frac{1}{r_B}) = \varphi(P)-\varphi(B)\]
+Ohne Festlegung eines Bezugspunkts: $\varphi(P) = \frac{Q}{4\pi\epsilon}\frac{1}{r} +const$ (bei weit entferntem oder geerdetem Bezugspunkt: $const = 0$)
+
+\subsection{Dipol}
+$b$: Abstand zwischen den Ladungsschwerpunkten
+\[\varphi(P) = \frac{Q}{4\pi\epsilon} \cdot \frac{r_- -r_+}{r_-r_+}\]
+Näherung für sehr kleines $b$:
+\[\varphi(P) = \frac{p \cdot cos\vartheta}{4\pi\epsilon r^2}\]
+mit elektrischem Dipolmoment \[p = Q \cdot b\]
+Punktladung: Potentialabnahme mit $\frac{1}{r}$\\
+Dipol: Potentialabnahme mit $\frac{1}{r^2}$,  da sich die beiden Wirkungen zunehmend aufheben.\\
+
+\subsection{Linienladung}
+\[dQ = \lambda \cdot ds \rightarrow d\varphi(P) = \frac{\lambda ds}{4\pi\epsilon r}\]
+\[\varphi(P) = \frac{\lambda}{4\pi\epsilon}\int\limits_{-l}^{+l}{\frac{1}{\sqrt{\rho^2+(z-s)^2}}ds} = [\frac{\lambda}{4\pi\epsilon} \cdot \text{arsh} (\frac{s-z}{\rho}]_{-l}^{+l})\] 
+mit 
+\[\text{arsh} (x) = ln(x+\sqrt{x^2+1})\]
+\\
+Besser (für Zylindersymmetrische Anordnungen):
+\[Q = \lambda l = \int\limits_{Mantel}{\vec{D} \cdot d\vec{A}} = D(\rho)2\pi\rho l\]
+Feldstärke um die Ladung:
+\[E(\rho) = \frac{\lambda}{2\pi\epsilon \rho}\]
+Aus
+\[U_{PB} = \int\limits_{\rho_P}^{\rho_B}{E(\rho)d\rho}= \frac{\lambda}{2\pi\epsilon}[ln(\rho)]_{\rho_P}^{\rho_B}\]
+folgt:
+\[\varphi(\rho) = \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_B}{\rho}\]
+
+\section{Influenz}
+Flächenladungsdichte:
+\[\sigma = \frac{dQ}{dA} = \frac{d\Psi}{dA}= D\]
+
+\subsection{Feldmühle}
+\[\sigma = D = \epsilon_0 \cdot E\]
+Ladung auf Fläche $A$:
+\[Q = \int\limits_{(A)}{\sigma dA} = \int\limits_{(A)}{\epsilon_0 EdA} = \epsilon_0 EA\]
+
+\section{Kapazität}
+\[C = \frac{Q}{U}\]
+Spannung zwischen Ladungen:
+\[U = Ed\]
+
+\subsection{Kugelkondensator}
+Kapazität:
+\[C = 4\pi\epsilon \frac{r_1r_2}{r_2-r_1}\]
+Spannung zwischen den Elektroden:
+\[U_{12} = \int\limits_{r_1}^{r_2}{Edr} = \frac{Q}{4\pi\epsilon}(\frac{1}{r_1}\frac{1}{r_2})\]
+Maximal auftretende Feldstärke (am inneren Rand des Dielektrikums):
+\[E_{max} = \frac{U}{r_1}\frac{r_2}{r_2-r_1}\]
+Minimum der maximalen Feldstärke ($E_{max, min}$):
+\[\frac{dE_{max}}{dr_1} = 0 \rightarrow r_{1,opt} = \frac{r_2}{2}\]
+Sonderfall,  Kapazität einer Kugel frei im Raum: 
+\[C = 4\pi\epsilon r_1\]
+Dabei auftretende Feldstärke direkt an der Hülle:
+$E_{max} = \frac{U}{r}$
+
+\subsection{Koaxialer Zylinder}
+$\rho$ = Radius\\
+Ladung auf dem Kondensator
+\[Q = \lambda z = \oint\limits_A{\vec{D}\cdot d\vec{A}} = D(\rho) \cdot A(\rho) = D(\rho) \cdot 2\pi\rho z\]
+Feldstärke um im Zylinder
+\[E(\rho) = \frac{\lambda}{2\pi\epsilon\rho}\]
+Längenbezogene Kapazität:
+\[C' = \frac{C}{z} = \frac{\lambda}{U} = \frac{2\pi\epsilon}{ln\frac{\rho_2}{\rho_1}}\]
+Minimum der Maximalen Feldstärke:
+\[\frac{dE_{max}}{d\frac{\rho_2}{\rho_1}} = 0 \rightarrow \rho_{1,opt} = \frac{\rho_2}{e}\]
+
+\subsubsection{Geschichtete Dielektrika}
+Geschichtete Dielektrika ($\epsilon_1, \rho_1 ...\rho_2$ und $\epsilon_2, \rho_2 ... \rho_3$):
+\[U_{ges} = U_{\rho_1\rho_2} + U_{\rho_2\rho_3} = \frac{\lambda}{2\pi}(\frac{1}{\epsilon_1}ln\frac{\rho_2}{\rho_1}+\frac{1}{\epsilon_2}ln\frac{\rho_3}{\rho_2})\]
+Längenbezogene Kapazität:
+\[C' = \frac{\lambda}{U_{ges}} = \frac{2\pi}{\frac{1}{\epsilon_1}ln\frac{\rho_2}{\rho_1}+\frac{1}{\epsilon_2}ln\frac{\rho_3}{\rho_2}}\]
+Feldstärkeverhältnisse:
+\[\frac{E_2(\rho_2)}{E_1(\rho_2)} = \frac{\epsilon_1}{\epsilon_2}\]
+Das Maximum der Feldstärke tritt jeweils am Innenradius des Dielektrikums auf!
+\[\frac{E_{max1}}{E_{max2}}=\frac{\epsilon_2 \rho_2}{\epsilon_1 \rho_1}\]
+
+\subsection{Superposition von Potentialen}
+Zwei parallele Linienladungen, ungleichen Vorzeichens, mit Radius $\rho_0$, Punkt $P$ mit $\varphi_+$, $\varphi_-$:
+\[C' = \frac{\lambda}{\varphi_+ - \varphi_-} = \frac{\pi\epsilon}{ln\frac{f}{\rho_0}}\]
+Potential:
+\[\varphi(P) = \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_-}{\rho_+}\]
+Maximal auftretende Feldstärke (an der Leiteroberfläche):
+\[E_{max} = \frac{U}{2\rho_0 ln\frac{d}{\rho_0}}\]
+(Gleiche Vorzeichen:
+\[\varphi(P) = \frac{\lambda}{2\pi \epsilon}\cdot ln\frac{\rho_B}{\rho_1} + \frac{\lambda}{2\pi\epsilon}\cdot ln\frac{\rho_B}{\rho_2} =  \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_B^2}{\rho_1\rho_2})\]
+
+\section{Feldbilder}
+d = Abstand zwischen zwei Äquipotentiallinien.
+\[\Delta U = d\cdot E\]
+$b$ : Abstand zwischen zwei Feldlinien.\\
+$\Delta Q$ : Ladung auf den Elektroden.\\
+\[\Delta Q = D\cdot \Delta A = \epsilon E\cdot \Delta A = \epsilon Ebz\]
+$\Delta C$ : Teilkapazität pro Kästchen mit Seitenlängen d und b.
+\[\Delta C = \frac{\Delta Q}{\Delta U} = \frac{\epsilon E b z}{dE} = \epsilon z \frac{b}{d} = const.\]
+Längebezogene Kapazität:
+\[\Delta C' = \frac{\Delta C}{z}= \epsilon \frac{b}{d} = const.\]
+Der gesamte Feldraum kann als Reihen- und Parallelschaltung gleicher (Längen-bezogener) Teilkapazitäten $\Delta C'$ verstanden werden, für die gilt:
+\[\Delta C' = \frac{\epsilon b}{d}\]
+Für $\frac{b}{d} = 1$ (Quadrate) gilt:
+\[\Delta C' = \epsilon \rightarrow C' = \epsilon \frac{n}{m-1}\]
+mit $n$ = Anzahl der Feldlinien und $m$ = Zahl der Äquipotentiallinien (inc Oberfläche). Nur gültig für 2D Felder.
+
+\section{Energie im elektrischen Feld}
+Allgemein:
+\[W_e = \int\limits_0^\infty{u(t)i(t)dt} = \int\limits_0^{Q_e}{udQ}\]
+Plattenkondensator mit Abstand $d$:\\
+\[W_e = \int\limits_0^{Q_e}{udQ} = \int\limits_0^{D_e}{EdAdD} = Ad\int\limits_0^{D_e}{EdD}\]
+ mit $Ad = V$ ist das vom Feld durchsetzte Volumen:\\
+\[W_e = V \int\limits_0^{D_e}{EdD} = \frac{1}{2} CU^2\]
+Energiedichte:
+\[w_e = \frac{W_e}{V} = \int\limits_0^{D_e}{EdD} = \frac{1}{2} \cdot \frac{D_e^2}{\epsilon} = \frac{1}{2} DE\]
+Aufzuwendende Kraft bei Vergrößerung der Kapazität:
+\[F_x = -\frac{dW_e^{(Q)}}{dx} = \frac{Q^2}{2\epsilon A}\]
+
+\section{Kräfte im elektrostatischen Feld}
+Energieinhalt:
+\[W_e = \frac{1}{2} \frac{Q^2\cdot (d-x)}{2\epsilon A}\]
+Fremdfeld einer Platte: 
+\[Q = \oint\limits_A{\vec{D}\cdot dA} = D 2 A = \epsilon E 2 A\]
+Kraft auf eine Kondensatorplatte:
+\[F = \frac{DEA}{2} = \frac{Q^2}{2 \epsilon A}=\frac{1}{2} Q\cdot E = \frac{U^2\epsilon A}{2d^2}\]
+Kraftdichte $\sigma$:
+\[\sigma = \frac{1}{2}\epsilon E^2 = \frac{1}{2} DE\]
+Energiedichte $w_e$: 
+\[w_e = \sigma\]
+Kinetische Energie von Probeladungen im Feld: 
+\[W_{kin} = \frac{1}{2}mv^2 = QU\]
+
+\section{Bedingungen an Grenzflächen geschichteter Dielektrika}
+\[\vec{D} = \epsilon \cdot \vec{E}\]
+\[D_{1normal} = D_{2normal}\]
+\[E_{1tangential} = D_{2tangential}\]
+
+\subsection{Quer geschichtete Dielektrika}
+\[D_1 = D_2 (=D_{1normal} = D_{2normal})\]
+\[\frac{E_1}{E_2} = \frac{\epsilon_{r2}}{\epsilon_{r1}}\]
+\[E_2 = E_1 \frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+\[U = U_1 +U_2 = E_1 d_1+E_1 d_2\frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+
+\subsection{Längs geschichtete Dielektrika}
+\[\frac{D_1}{D_2} = \frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+\[E_1 = E_2\]
+
+\subsection{Schräg geschichtetes Dielektrikum}
+Wie bekannt:
+\[E_{1t} = E_{2t}\]
+\[D_{1n} = E_{2n}\]
+
+Winkel $\alpha = \measuredangle{(\vec{E_n}, \vec{E})}$:
+\[\frac{\tan\alpha_1}{\tan\alpha_2} = \frac{\epsilon_{r1}}{\epsilon_{r2}}\]
+Feldlininen werden beim Übergang in ein Dielektrikum mit größerer relativer Dielektrizitätszahl von der Normalen weg, also zur Grenzfläche hin gebrochen.
+
+
+\part{Stationäres elektrisches Strömungsfeld}
+\section{Basics}
+Zusammenhang zwischen Strom und Stromdichte:
+\[\Delta I = \vec{J} \cdot \Delta \vec{A}\]
+Betrag:
+\[\rightarrow \left| \Delta I\right| = J_n \Delta A = J\Delta A \cdot cos \alpha\]
+Für eine beliebige gekrümmte Fläche gilt:
+\[I = \int\limits_A{\vec{J} \cdot d\vec{A}}\]
+Analog zu $\sum{I} = 0$:
+\[\oint\limits_A{\vec{J} \cdot d\vec{A}} = 0\]
+
+\section{Ohmsches Gesetz}
+Das Feldbild der Stromdichte in Leitern entspricht dem der Feldstärke in Dielektrika für Leitwert und Widerstand konstant:\\
+\[\vec{E} = \rho \vec{J}\] und \[\vec{J} = \gamma \vec{E}\] mit $rho$ = spez. Widerstand und $gamma$ = spez. Leitwert\\
+
+\section{Leistungsdichte im Strömungsfeld}
+Im homogenen Feld:
+\[P=I^2R\]
+\[\Delta P = (\Delta I)^2\frac{\Delta l}{\gamma \Delta A} = J^2 \frac{\Delta l \Delta A}{\gamma}\]
+\[p = \frac{\Delta P}{\Delta V} =\frac{J^2}{\gamma}=EJ =\gamma E^2\]
+
+\section{Relaxationszeitkonstante}
+Zeitkonstante $\tau$:
+\[\tau = RC = \frac{epsilon}{\gamma}\]
+\[u = U_0e^{\frac{-t}{\tau}}\]
+
+Entscheidung ob ein langsam  veränderliches Feld als Strömungsfeld oder elektro(quasi)statisches Feld zu behandeln ist:\\
+elektro(quasi)statisch:
+\[\frac{T}{4}<< \tau\]
+\[T_a << \tau\]
+Strömungsfeld:
+\[\frac{T}{4}>>\tau\]
+\[T_a >> \tau\]
+mit $T$ = Periodendauer periodischer Größen und $T_a$ = Anstiegszeit transienter Größen.
+
+\section{Berechnung von Widerständen}
+\subsection{Methode 1: Allgemeingültige Methode}
+\[R=\frac{U}{I}= \frac{\int\limits_a^b{\vec{E}d\vec{s}}}{\int\limits_A{\vec{J}d\vec{A}}} =\frac{\int\limits_a^b{\vec{E}d\vec{s}}}{\gamma \int\limits_A{\vec{E}d\vec{A}}} \]
+Bei Kenntnis der Potentialfunktion:
+\[R=\frac{U}{I} = \frac{\varphi_+ - \varphi_-}{I}\]
+
+\subsection{Methode 2: Alternative für homogene Strömungen}
+über dR oder dG integrieren, z.B koaxiale Zylinderanordnung:
+\[ R = \int\limits_{\rho_1}^{\rho_2}{dR} = \int\limits_{\rho_1}^{\rho_2}{\frac{d\rho}{\gamma 2 \pi \rho l_{Zyl}}} = \frac{1}{\gamma 2 \pi l_{Zyl}} \cdot ln\frac{\rho_2}{\rho_1}\]
+oder stromdurchflossener Bügel ($b$ = Breite):
+\[dG = \frac{\gamma A}{l} = \frac{\gamma bd\rho}{\pi \rho}\]
+\[G = \int\limits_{\rho_1}^{\rho_2}{dG} = \int\limits_{\rho_1}^{\rho_2}{\frac{\gamma b\cdot d\rho}{\pi \rho}}= \frac{\gamma b}{\pi} ln\frac{\rho_2}{\rho_1}\]
+
+\subsection{Methode 3: Durch $\tau$ (bei bekannter Kapazität)}
+\[\tau = RC = \frac{\epsilon}{\gamma} \rightarrow R = \frac{\epsilon}{\gamma C}\]
+
+\section{Bedingungen an Grenzflächen}
+\subsection{Quer geschichtete Leiter}
+$\vec{E}$ und $\vec{J}$ weisen nur Tangentialkomponenten auf.
+\[\frac{E_1}{E_2} = \frac{\gamma_1}{\gamma_2}\]
+\[E_2 = E_1\frac{\gamma_1}{\gamma_2}\]
+\[U = U_1 + U_2 = E_1 d_1 + E_2 d_2 = E_1 d_1 + E_1 d_2\frac{\gamma_1}{\gamma_2}\]
+
+\subsection{Schräg geschichtete Leiter}
+$\vec{E}$ und $\vec{J}$ schneiden die Grenzflächen schräg.\\
+\[J_{xn} = \gamma_x E_{xn}\]
+\[E_{1t} = E_{1t}\]
+\[J_{1n} = J_{2n}\]
+Winkel $\alpha = \measuredangle{(\vec{E_n}, \vec{E})}$:
+\[\frac{\tan\alpha_1}{\tan\alpha_2} = \frac{\gamma_1}{\gamma_2}\]
+D.h. Feld- und Strömungslinien werden beim Übergang in einen  Leiter mit größerer Leitfähigkeit von der Normalen weg zur Grenzfläche hin gebrochen.
+
+\subsection{Verschiebungsdichte}
+Grundsätzlich:
+\[J_{1n} = J_{2n}\]
+\[\gamma_1 \frac{D_{1n}}{\epsilon_1} = \gamma_2 \frac{D_{2n}}{\epsilon_2}\]
+Bedingung für $D_{1n} = D_{2n}$:
+\[\frac{\epsilon_1}{\epsilon_2} = \frac{\gamma_1}{\gamma_2}\]
+Falls $D_{1n} \neq D_{2n}$ Ausbildung einer Flächenladung:
+\[D_{2n} - D_{1n} = \sigma\]
+
+
+\end{document}

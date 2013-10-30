@@ -1,0 +1,207 @@
+
+%% Basierend auf einer TeXnicCenter-Vorlage von Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,twoside,12pt]{report}
+% Alternative Optionen:
+%	PapiergrÃ¶Ãe: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Grundlegende FontgrÃ¶Ãen: 10pt / 11pt / 12pt
+
+
+%% Deutsche Anpassungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[ansinew]{inputenc}\\
+
+%\usepackage{german}
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern} %Type1-Schriftart fÃ¼r nicht-englische Texte
+
+\usepackage{setspace}
+%% Packages fÃ¼r Grafiken & Abbildungen %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%Zum Laden von Grafiken
+%\usepackage{subfig} %%Teilabbildungen in einer Abbildung
+%\usepackage{tikz} %%Vektorgrafiken aus LaTeX heraus erstellen
+
+%% Beachten Sie:
+%% Die Einbindung einer Grafik erfolgt mit \includegraphics{Dateiname}
+%% bzw. Ã¼ber den Dialog im EinfÃ¼gen-MenÃ¼.
+%% 
+%% Im Modus "LaTeX => PDF" kÃ¶nnen Sie u.a. folgende Grafikformate verwenden:
+%%   .jpg  .png  .pdf  .mps
+%% 
+%% In den Modi "LaTeX => DVI", "LaTeX => PS" und "LaTeX => PS => PDF"
+%% kÃ¶nnen Sie u.a. folgende Grafikformate verwenden:
+%%   .eps  .ps  .bmp  .pict  .pntg
+
+
+%% Packages fÃ¼r Formeln %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+
+%% Zeilenabstand %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{setspace}
+%\singlespacing        %% 1-zeilig (Standard)
+%\onehalfspacing       %% 1,5-zeilig
+%\doublespacing        %% 2-zeilig
+
+
+%% Andere Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{a4wide} %%Kleinere SeitenrÃ¤nder = mehr Text pro Zeile.
+\usepackage{fancyhdr} %%Fancy Kopf- und FuÃzeilen
+
+\begin{document}
+
+\title{Zusammenfassung ETiT II SS12}
+\author{Maximilian Reuter}
+%\date{} %%Wenn kommentiert, wird das aktuelle Datum verwendet.
+
+\maketitle
+\tableofcontents
+
+\chapter{Elektrostatisches Feld}
+
+\section{Konstanten}
+
+$c_0 = 299 792 458 \frac{m}{s}$\\
+$\mu_0 = 4\pi \cdot 10^{-7} \frac{Vs}{Am}$\\
+$\epsilon_0 = 8,854 \cdot 10^{-12}$ (durch $\epsilon_0 \cdot \mu_0 \cdot c^2_0 = 1$)\\
+$K = \frac{1}{4\pi\epsilon_0} = 10^{-7} \cdot c^2_0$\\
+$\epsilon_r$ : temperaturunabhÃ¤ngig, oberhalb der ferroelektrischen Curie-Temperatur starkes absinken.\\
+
+
+\section{Ladungsformen}
+
+Raumladungsdichte: $\rho = \lim\limits_{\Delta V \to 0} {\frac{\Delta Q}{\Delta V} = \frac{dQ}{dV}}$\\
+Ladung durch Ortsfunktion $\rho(x,y,z)$ berechnen: $Q = \int\limits_V {\rho\ dV} = \iiint\limits_V{\rho(x,y,z)\ dx\ dy\ dz}$\\
+FlÃ¤chenladungsdichte: $\sigma = \lim\limits_{\Delta A \to 0}{\frac{\Delta Q}{\Delta A}}$\\
+Bei einem Leiter mit $LÃ¤nge >> Durchmesser$ $\rightarrow$ Linienladung.\\
+Linienladungsdichte: $\lambda = \lim\limits_{\Delta l \to 0}{\frac{\Delta Q}{\Delta l}} = \frac{dQ}{dl}$
+
+\section{Das Coulombsche Gesetz / Gravitationsgesetz}
+Kraftwirkung zwischen zwei Ladungen $Q_1$ und $Q_2$: $\vec{F} = \frac{1}{4\pi \epsilon_0}\cdot \frac{Q_1 \cdot Q_2}{r^2}\cdot d\vec{r_{0}}$\\
+Kraftwirkung zwischen zwei Massen $m_1$ und $m_2$: $F_m = G\cdot \frac{m_1 \cdot m_2}{r^2}$
+
+\section{Elektrisches Feld}
+
+$\vec{E}= \frac{\vec{F}}{Q}$ mit $[E] = \frac{V}{m}$\\
+$\vec{D} = \epsilon_0 \cdot \vec{E} = \frac{\Delta\Psi}{\Delta A}= \frac{Q}{4\pi r^2}\cdot \vec{r}$\\
+E-Feld um Punktladung: $\vec{E} = \frac{Q}{4\pi\epsilon_0 r^2} \cdot \vec{r}$ (Abnahme $\tilde{} \frac{1}{r^2}$)\\
+Arbeit um Ladung im Feld zu verschieben: $\Delta W_{mech} = F\cdot\Delta s = q \cdot E \cdot \Delta s$\\
+Potentielle Energie der Ladung nimmt um gleichen Betrag ab $\rightarrow \Delta U = E\cdot \Delta s$\\
+Verschiebung in beliebige Richtung: \\
+$\Delta W_{mech} = F\cdot \Delta s \cdot cos\alpha = \left|\vec{F}\right| \cdot \left|\Delta\vec{s}\right| \cdot cos (\vec{F}, \Delta\vec{s})$\\
+$W_{mech} = q\int\limits_A^B{\vec{E} \cdot d\vec{s}}$ ("`Linienintegral"')\\
+Bei geschlossenem Weg: $\oint\limits_ {L}{\vec{E}\cdot d\vec{s}} = 0$ ("`Wirbelfreiheit"')\\
+Das Linienintegral der E-FeldstÃ¤rke ist weg-unabhÃ¤ngig. Es kommt nur auf den Anfangs- und Endpunkt an!\\
+$U_{AB} = \int\limits_{A}^B{\vec{E} \cdot d\vec{s}} $\\
+Potential in Bezug auf Punkt $0$: $\varphi_v = U_{v0} = \int\limits_v^0{\vec{E}\cdot d\vec{s}} = -\int\limits_0^v{\vec{E}\cdot d\vec{s}}$\\
+$E_x = -\frac{d\varphi}{dx},\ E_y = -\frac{d\varphi}{dy},\ E_z = -\frac{d\varphi}{dz} \rightarrow \vec{E} = -grad\varphi$\\
+
+\section{Elektrischer Fluss}
+Elektrischer Fluss: $\Delta\Psi = D \cdot A ( = \left|\vec{D}\right|\left|\vec{A}\right| \cdot cos(\vec{D}), \Delta\vec{A})$ mit $\Delta \Psi = \Delta Q$\\
+GauÃscher Satz der Elektrostatik: $Q = \oint\limits_A{\vec{D} \cdot d\vec{A}}$\\
+$\Psi = \int\limits_A{\vec{D} \cdot dA}$ bei beliebiger, jedoch nicht geschlossener FlÃ¤che\\
+
+\section{Potentialfunktionen}
+\subsection{Punktladung}
+$U_{PB} = \frac{Q}{4\pi\epsilon}(\frac{1}{r_P}-\frac{1}{r_B}) = \varphi(P)-\varphi(B)$\\
+Ohne Festlegung eines Bezugspunkts: $\varphi(P) = \frac{Q}{4\pi\epsilon}\frac{1}{r} +const$ (bei weit entferntem oder geerdetem Bezugspunkt: const = 0)\\
+
+\subsection{Dipol}
+$b$: Abstand zwischen den Ladungsschwerpunkten\\
+$\varphi(P) = \frac{Q}{4\pi\epsilon} \cdot \frac{r_- -r_+}{r_-r_+}$\\
+NÃ¤herung fÃ¼r sehr kleines $b$: $\varphi(P) = \frac{p \cdot cos\vartheta}{4\pi\epsilon r^2}$ mit $ p = Q \cdot b$ (elektrisches Dipolmoment)\\
+Punktladung: Potentialabnahme mit $\frac{1}{r}$\\
+Dipol: Potentialabnahme mit $\frac{1}{r^2}$,  da sich die beiden Wirkungen zunehmend aufheben.\\
+
+\subsection{Linienladung}
+$dQ = \lambda \cdot ds \rightarrow d\varphi(P) = \frac{\lambda ds}{4\pi\epsilon r}$\\
+$\varphi(P) = \frac{\lambda}{4\pi\epsilon}\int\limits_{-l}^{+l}{\frac{1}{\sqrt{\rho^2+(z-s)^2}}ds} = [\frac{\lambda}{4\pi\epsilon} \cdot Arsh \frac{s-z}{\rho}]_{-l}^{+l}$ mit $Arsh x = ln(x+\sqrt{x^2+1})$\\
+\\
+Besser (fÃ¼r Zylindersymmetrische Anordnungen):\\
+$Q = \lambda l = \int\limits_{Mantel}{\vec{D} \cdot d\vec{A}} = D(\rho)2\pi\rho l$\\
+$E(\rho) = \frac{\lambda}{2\pi\epsilon \rho}$\\
+$U_{PB} = \int\limits_{\rho_P}^{\rho_B}{E(\rho)d\rho}= \frac{\lambda}{2\pi\epsilon}[ln(\rho)]_{\rho_P}^{\rho_B}$
+$\rightarrow \varphi(\rho) = \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_B}{\rho}$
+
+\section{Influenz}
+$\sigma = \frac{dQ}{dA} = \frac{d\Psi}{dA}= D$
+
+\subsection{FeldmÃ¼hle}
+$\sigma = D = \epsilon_0 \cdot E$\\
+Ladung auf FlÃ¤che $A$: $Q = \int\limits_{(A)}{\sigma dA} = \int\limits_{(A)}{\epsilon_0 EdA} = \epsilon_0 EA$\\
+
+\section{KapazitÃ¤t}
+$C = \frac{Q}{U}$\\
+$U = Ed$
+
+\subsection{Kugelkondensator}
+$C = 4\pi\epsilon \frac{r_1r_2}{r_2-r_1}$\\
+$U_{12} = \int\limits_{r_1}^{r_2}{Edr} = \frac{Q}{4\pi\epsilon}(\frac{1}{r_1}\frac{1}{r_2})$\\
+$E_{max} = \frac{U}{r_1}\frac{r_2}{r_2-r_1}$\\
+Minimale FeldstÃ¤rke: $\frac{dE_{max}}{dr_1} = 0 \rightarrow r_{1,opt} = \frac{r_2}{2}$
+\\
+Sonderfall,  KapazitÃ¤t einer Kugel frei im Raum: $C = 4\pi\epsilon r_1$\\
+$E_{max} = \frac{U}{r}$\\
+
+\subsection{Koaxialer Zylinder}
+$Q = \lambda z = \oint\limits_A{\vec{D}\cdot d\vec{A}} = D(\rho) \cdot A(\rho) = D(\rho) \cdot 2\pi\rho z$\\
+$E(\rho) = \frac{\lambda}{2\pi\epsilon\rho}$\\
+LÃ¤ngen-bezogene KapazitÃ¤t: $C' = \frac{C}{z} = \frac{\lambda}{U} = \frac{2\pi\epsilon}{ln\frac{\rho_2}{\rho_1}}$\\
+Minimum der Maximalen FeldstÃ¤rke: $\frac{dE_{max}}{d\frac{\rho_2}{\rho_1}} = 0 \rightarrow \rho_{1,opt} = \frac{\rho_2}{e}$\\
+
+\subsubsection{Geschichtete Dielektrika}
+Geschichtete Dielektrika ($\epsilon_1, \rho_1 ...\rho_2$ und $\epsilon_2, \rho_2 ... \rho_3$):\\
+$U_{ges} = U_{\rho_1\rho_2} + U_{\rho_2\rho_3} = \frac{\lambda}{2\pi}(\frac{1}{\epsilon_1}ln\frac{\rho_2}{\rho_1}+\frac{1}{\epsilon_2}ln\frac{\rho_3}{\rho_2})$ \\
+$C' = \frac{\lambda}{U_{ges}} = \frac{2\pi}{\frac{1}{\epsilon_1}ln\frac{\rho_2}{\rho_1}+\frac{1}{\epsilon_2}ln\frac{\rho_3}{\rho_2}}$\\
+FeldstÃ¤rkeverhÃ¤ltnisse:
+$\frac{E_2(\rho_2)}{E_1(\rho_2)} = \frac{\epsilon_1}{\epsilon_2}$\\
+Das Maximum der FeldstÃ¤rke tritt jeweils am Innenradius des Dielektrikums auf!\\
+$\frac{E_{max1}}{E_{max2}}=\frac{\epsilon_2 \rho_2}{\epsilon_1 \rho_1}$\\
+
+\subsection{Superposition von Potentialen}
+Zwei parallele Linienladungen, ungleichen Vorzeichens, mit Radius $\rho_0$, Punkt $P$ mit $\varphi_+$, $\varphi_-$:\\
+$C' = \frac{\lambda}{\varphi_+ - \varphi_-} = \frac{\pi\epsilon}{ln\frac{f}{\rho_0}}$\\
+$\varphi(P) = \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_-}{\rho_+}$\\
+$E_{max} = \frac{U}{2\rho_0 ln\frac{d}{\rho_0}}$\\
+(Gleiche Vorzeichen: $\varphi(P) = \frac{\lambda}{2\pi \epsilon}\cdot ln\frac{\rho_B}{\rho_1} + \frac{\lambda}{2\pi\epsilon}\cdot ln\frac{\rho_B}{\rho_2} =  \frac{\lambda}{2\pi\epsilon}ln\frac{\rho_B^2}{\rho_1\rho_2}$)\\
+
+\section{Feldbilder}
+d : Abstand zwischen zwei Ãquipotentiallinien.\\
+$\Delta U = d\cdot E$\\
+$b$ : Abstand zwischen zwei Feldlinien.\\
+$\Delta Q$ : Ladung auf den Elektroden.\\
+$\Delta Q = D\cdot \Delta A = \epsilon E\cdot \Delta A = \epsilon Ebz$\\
+$\Delta C$ : TeilkapazitÃ¤t pro KÃ¤stchen mit SeitenlÃ¤ngen d und b.\\
+$\Delta C = \frac{\Delta Q}{\Delta U} = \frac{\epsilon E b z}{dE} = \epsilon z \frac{b}{d} = const.$\\
+$\Delta C' = \frac{\Delta C}{z}= \epsilon \frac{b}{d} = const.$\\
+Der gesamte Feldraum kann als Reihen- und Parallelschaltung gleicher (LÃ¤ngen-bezogener) TeilkapazitÃ¤ten $\Delta C'$ verstanden werden, fÃ¼r die gilt:\\
+$\Delta C' = \frac{\epsilon b}{d}$\\
+FÃ¼r $\frac{b}{d} = 1$ (Quadrate) gilt:\\
+$\Delta C' = \epsilon \rightarrow C' = \epsilon \frac{n}{m-1}$\\ 
+mit n: Anzahl d. Feldlinien und m: Zahl d. Ãquipotentiallinien (inc. OberflÃ¤che). Nur gÃ¼ltig fÃ¼r 2D Felder.\\
+
+\section{Energie im elektrischen Feld}
+Allgemein:\\
+$W_e = \int\limits_0^\infty{u(t)i(t)dt} = \int\limits_0^{Q_e}{udQ}$\\
+Plattenkondensator mit Abstand $d$:\\
+$W_e = \int\limits_0^{Q_e}{udQ} = \int\limits_0^{D_e}{EdAdD} = Ad\int\limits_0^{D_e}{EdD}$ mit $Ad = V$ ist das vom Feld durchsetzte Volumen:\\
+$W_e = V \int\limits_0^{D_e}{EdD} = \frac{1}{2} CU^2$\\
+$w_e = \frac{W_e}{V} = \int\limits_0^{D_e}{EdD} = \frac{1}{2} \cdot \frac{D_e^2}{\epsilon} = \frac{1}{2} DE$\\
+$F_x = -\frac{dW_e^{(Q)}}{dx} = \frac{Q^2}{2\epsilon A}$ fÃ¼r $F_x$: aufzuwendende Kraft bei VergrÃ¶Ãerung d. KapazitÃ¤t.\\
+
+\subsection{KrÃ¤fte im elektrostatischen Feld}
+$Q = \oint\limits_A{\vec{D}\cdot dA} = D 2 A = \epsilon E 2 A$\\
+$F = \frac{Q^2}{2 \epsilon A}$\\
+
+
+
+\end{document}

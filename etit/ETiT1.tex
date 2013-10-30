@@ -1,0 +1,285 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{a4wide}
+\title{Zusammenfassung ETiT WS2011/12}
+\author{Maximilian Reuter}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\part{Generelle wichtige Formeln}
+Stromstärke:
+\[I = \frac{\Delta Q}{\Delta t}\]
+Widerstand in Ohm ($\Omega$):
+\[R=\frac{U}{I}\]
+\[R = \rho \frac{l}{A}\] 
+Leitwert in Siemens ($S$):
+\[G = \frac{1}{R}\]
+\[G = \gamma \frac{A}{l}\]
+Arbeit $W$ in Joule ($J$):
+\[W = Q \cdot U = U\cdot I \cdot t\]
+Leistung $P$ in Watt ($W$):
+\[P = U*I\]
+Potential einer durch die Arbeit $W$ verschobenen Ladung $Q$ ($\varphi_{Ursprungsort} = 0$):
+\[\varphi = \frac{W}{Q}\]
+Potentialdifferenz $U$ in Volt ($V$):
+\[U_{ab} = \varphi_A - \varphi_B\]
+Wirkungsgrad:
+\[\eta = \frac{R}{R+R_i} = \frac{P_{nutz}}{P_{zu}}\]
+\[0\geq \eta \geq 1\]
+
+\part{Gleichstrom}
+\section{Temperaturabhängigkeit von Widerständen}
+Formel:\\
+\[R = R_{20}[1+\alpha_{20}(\vartheta-\vartheta_0)]\]
+
+\section{Die Kirchhoffschen Gesetze}
+\subsection{Gesetz 1}
+Alles was in einen Knoten reinfließt, muss auch wieder raus!
+\[\sum_{v=1}^n I_v = 0\]
+
+\subsection{Gesetz 2}
+Die Spannungen in einem Umlauf addieren sich zu 0:
+\[W_{Umlauf} = QU_{Umlauf} = 0\]
+durch 
+\[U_{Umlauf}= \sum_{v=1}^n U_v = 0\]
+
+\section{Ohmscher Widerstand (Zweipole)}
+\subsection{Reihenschaltung}
+In Reihe geschaltete Widerstände addieren sich.
+\[R_{ges} = R_1 + R_2 + R_3 + ...\]
+
+\subsection{Parallelschaltung}
+Parallelgeschaltete Widerstände lassen sich ermitteln indem man die Leitwerte addiert.
+\[G_{ges} = G_1 + G_2 + G_3+...\]
+mit Widerständen:
+\[\frac{1}{R_{ges}} = \sum\frac{1}{R_{Teil}}\]
+
+\subsection{Spannungsteiler}
+\[U_2 = \frac{R_2}{R_1+R_2}U\]
+
+\subsection{Stromteiler}
+\[I_2 = \frac{R_1}{R_1+R_2}I\]
+
+\subsection{Netzreduktion: Brücken-Abgleich}
+$U_5 = U_3 - U_1$ soll 0 sein, daher muss $U_3 = U_1$ sein.\\
+Für die Widerstände $R_1$ bis $R_4$ bedeutet das:
+\[\frac{R_1}{R_1+R_2} = \frac{R_3}{R_3+R_4}\]
+In der Klausur unbedingt zuerst nach Brücken suchen!!
+
+\section{Zählpfeile}
+Zählrichtung muss am Anfang willkürlich festgelegt werden und entscheidet dann am Ende über das Vorzeichen
+von Strom und Spannung.\\
+\begin{itemize}
+\item
+Bei gleichgerichtetem Strom- und Spannungspfeil: Verbraucherzählpfeilsystem\\
+\item
+Bei entgegengesetztem Strom- und Spannungspfeil: Erzeugerpfeilsystem\\
+\end{itemize}
+
+\section{Messung}
+\subsection{Strommessung (Amperemeter)}
+$R_i << R_{Last}$, da sonst eine Spannung am Amperemeter abfällt, die das Ergebnis verfälscht!\\
+\\
+Messbereichserweiterung: Widerstand parallel schalten: \\
+\[I_{max} = \frac{G_M+G_P}{G_M}I_{M,max}\]
+
+\subsection{Spannungsmessung (Voltmeter)}
+$R_i >> R_{Last}$, da sonst Strom durch das Voltmeter fließt, der das Ergebnis verfälscht!\\
+\\
+Messbereichserweiterung: Widerstand in Reihe schalten: \\
+\[U_{max} = \frac{R_M+R_1}{R_M}U_{M,max}\]
+
+\section{Quellen}
+\subsection{Strom- und Spannungsquelle}
+Stromquelle gibt konstanten Strom bei beliebiger Spannung ab, Spannungsquelle gibt bei konstanter Spannung einen beliebigen Strom ab andersherum. Beliebig bedeutet abhängig von $R_{ges}$.
+
+\subsection{Lineare Quelle}
+Lineare Abhängigkeit zwischen $U$ und $I$
+\begin{itemize}
+\item Leerlaufspannung: $I = 0, U = U_0$
+\item Kurzschlussstrom: $U = 0, I = I_k$
+\end{itemize}
+$\rightarrow$ U-I-Kennlinie!
+\[U(I) = U_0 - \frac{U_0}{I_k}I\]
+Innenwiderstand: 
+\[R_i = \frac{U_0}{I_k}\]
+Innenwiderstand durch Topologie ermitteln:\\
+Wir schließen 
+\begin{itemize}
+\item Spannungsquellen kurz (durch leitende Verbindung ersetzen)
+\item Stromquellen auf (auftrennen)
+\end{itemize}
+$\rightarrow$ danach einfach $R$ zwischen den beiden ausgehenden Klemmen a und b berechnen!
+
+\subsection{Last an Quelle}
+$P_{Last}$ ist maximal, wenn $R_L = R_i$\\
+
+\section{Dioden}
+\subsection{Arbeitspunkt finden}
+Arbeitspunkt ist der Schnittpunkt der $U-I$-Kennlinie mit der Gerade von $I_k$ zu $U_0$.\\
+Durch Veränderung der Quellenspannung erhält man eine parallele Gerade, durch Veränderung des Innenwiderstandes eine Geradenschar.\\
+
+\subsection{Anwendungsgebiet}
+Um Gleichspannungen zu stabilisieren, da eine Diode bei steigender Spannung einen steigenden Widerstand bekommt (und andersrum).
+
+\section{Sternschaltung Dreieckschaltung}
+\subsection{Dreieck-Stern-Umwandlung}
+Seien $R_{2}$, $R_{13}$ und $R_{23}$ die drei Widerstände einer Dreieckschaltung, so berechnet man $R_1$, $R_2$ und $R_3$ in der Sternschaltung durch: \\
+\[R_{x} = \frac{\text{Produkt der am Knoten liegenden Dreieckwiderstände}}{\text{Summe aller Dreieckwiderstände}}\]
+$\rightarrow$ unabgeglichene Brücke immer durch Stern ersetzen!!
+
+\subsection{Stern-Dreieck-Umwandlung}
+\[\text{Dreieckleitwert} = \frac{\text{Produkt der zwischen den Knoten liegenden Sternleitwerte}}{\text{Summe aller Sternleitwerte}}\]
+
+\section{Superposition}
+"`Die Wirkung einer Ursache von linearen Vorgängen kann unabhängig von allen anderen Ursachen und Wirkungen betrachtet werden"'(Hermann von Helmholtz)\\
+$\rightarrow$ Spannungsquellen gedanklich kurzschließen \\
+$\rightarrow$ Stromquellen gedanklich unterbrechen.\\
+Jeweils eine Quelle aktiv lassen und damit wie gewohnt das Netz analysieren. Die Ergebnisse werden addiert. Achtung bei Strömen/Spannungen ungleichen Vorzeichens!
+
+\section{Umlaufanalyse}
+Rezept:
+\begin{enumerate}
+\item
+Vollständigen Baum auswählen und Stromzählpfeile für Verbindungszweige eintragen.
+\item
+Unabhängige Ströme über den Spalten der Matrix auftragen.
+\item
+Summe der Umlaufwiderstände als Hauptdiagonalelemente eintragen.
+\item
+Koppelwiderstände in den Nebendiagonalen eintragen, wenn gekoppelte Umläufe gegensinnig sind, negatives Vorzeichen setzen!
+\item
+Summe der Quellenspannungen pro Umlauf den Zeilen zuordnen.
+\item
+Matrix mit dem Gauss Algorithmus lösen.
+\end{enumerate}
+
+\part{Wechselstrom}
+\section{Begriffe}
+Periodizitätsbedingung: 
+\[s(t) = s(t+T) = s(t+nT),\ n \in Z\]
+Arithmetischer Mittelwert: 
+\[\overline{s} = \frac{1}{T} \int\limits_{t_0}^{t_0+T}s(t)\]
+
+\section{Zeitfunktionen}
+Spannung:
+\[u(t) = \hat{U} \cdot \sin\omega t\]
+Stromstärke:
+\[i(t) = \frac{u(t)}{R} = \frac{\hat{U}}{R}sin(\omega t)\]
+Kreisfrequenz:
+\[\omega = 2\pi f\]
+Magnetischer Fluss:
+\[\Phi = BAcos(\varphi) = BAcos(\omega t)\]
+Induktionsgesetz:
+\[u_i = -\frac{d\Phi}{dt} = \omega ABsin(\omega t) = \hat{U}\cdot sin(\omega t)\]
+
+\section{Scheitel- und Formfaktoren}
+\subsection{Scheitelfaktoren}
+\begin{itemize}
+\item Sinusschwingung: 
+\[\frac{\hat{U}}{U} = \sqrt{2}\]
+\item Dreieckschwingung: 
+\[\frac{\hat{U}}{U} = \sqrt{3}\]
+\end{itemize}
+
+\subsection{Formfaktoren}
+\begin{itemize}
+\item Sinusschwingung:
+\[\frac{U}{\overline{u}} = \frac{\pi}{2\sqrt{2}}\]
+\item Dreieckschwingung: 
+\[\frac{U}{\overline{u}} = \frac{2}{\sqrt{3}}\]
+\end{itemize}
+
+\section{Komplexe Größen}
+Spannung:
+\[u(t) = \hat{U} cos(\omega t +\varphi_u)\]
+Komplexe Spannung:
+\[\underline{u}(t) = \hat{U}e^{j(\omega t +\varphi_u)} = Re\{\underline{u}\} + j Im\{\underline{u}\}\]
+Scheinwiderstand:
+\[\underline{Z} = R + jX\]
+Scheinleitwert:
+\[\underline{Y} = G + jB\]
+Scheinleistung:
+\[\underline{S} = \underline{Z}I^2 = P + jQ\]
+Leistungsfaktor:
+\[\lambda = \frac{P}{S}=cos\varphi\]
+Widerstand einer Kapazität:
+\[\underline{Z}_C = -j\frac{1}{\omega C}\]
+Widerstand einer Induktivität:
+\[\underline{Z}_L = j\omega L\]
+Wichtige Regel für Argumente(Winkel) komplexer Zahlen:
+\[Winkel(\frac{1}{a+jb}) = -Winkel(a+jb) = -arctan(\frac{b}{a})\]
+
+\section{Filter}
+\subsection{Formeln}
+\[1dB = 10lg\frac{P_A}{P_E} = 20lg \frac{U_A}{U_E}\]
+
+\subsection{Tiefpass 1.Grades}
+\[\frac{U_A}{U_E} = \frac{1}{\sqrt{1+j\Omega ^2}}\]
+Phasenverschiebung:
+\[\varphi = -\arctan(\Omega)\]
+Grenzfrequenz:
+\[\frac{U_A}{U_E} = \frac{1}{\sqrt(2)} \rightarrow \omega_g = \frac{\Omega_g}{RC} = \frac{1}{RC}\]
+
+\subsection{Tiefpass 2.Grades}
+\[\omega_g  = \frac{0,375}{RC}\]
+
+\section{Komplexe Leistung}
+\subsection{Wirkleistung}
+\[P = \frac{\hat{U}I_{Dach}}{2}cos\varphi = UIcos\varphi = \frac{1}{2}(\underline{U}\underline{I}^* + \underline{U}^* \underline{I})\]
+
+\subsection{Blindleistung}
+\[Q = \frac{\hat{U}I_{Dach}}{2}sin\varphi = UIsin \varphi = \frac{1}{2j}(\underline{U}\underline{I}^* - \underline{U}^* \underline{I})\]
+Blindleistung in einer Induktivität:
+\[Q_L = X_L I^2\]
+Blindleistung in einer Kapazität:
+\[Q_C = -X_C I^2\]
+
+\subsection{Komplexe Scheinleistung}
+\[\underline{S} = P + jQ = UI(\cos\varphi + j\sin\varphi) = \underline{Z} I^2 = RI^2+jXI^2 = UIe^{j\varphi}\]
+Winkel von $\underline{S}$:
+\[\varphi = \varphi_u - \varphi_i\]
+
+\subsection{Leistungsfaktor}
+$\cos \varphi = \lambda$
+
+\subsection{Blindleistungskompensation}
+Winkel von $Z_{ges}$ soll $0$ werden.
+\[Q_L + Q_C = Q_L - \omega CU^2 = 0\]
+Kapazität des Kompensationskondensators (zu kompensierende Blindleistung wird fast immer induktiv verursacht):
+\[\rightarrow C = \frac{Q_L}{\omega U^2}\]
+
+\subsection{Leistungsanpassung}
+\section{Transformator}
+Übersetzungsverhältnis:\\
+\[\ddot{u} = \frac{U_{r1}}{U_{r2}} = \frac{N_1}{N_2}\]
+
+\section{Verlust und Streuungsfreier Transformator}
+Wicklungen gleichsinnig:
+\[\underline{U}_1 = j\omega L_1 \underline{I}_1 + j \omega M \underline{I}_2\]
+\[\underline{U}_2 = j\omega L_1 \underline{I}_1 + j \omega M \underline{I}_1\]
+Wicklungen gegensinnig:
+\[\underline{U}_1 = j\omega L_1 \underline{I}_1 - j \omega M \underline{I}_2\]
+\[\underline{U}_2 = - j\omega L_1 \underline{I}_1 + j \omega M \underline{I}_1\]
+sonstige Formeln:
+\[\frac{U_1}{U_2} = \frac{L_1}{M} = \frac{L_1}{k\sqrt{L_1 L_2}} = \sqrt{\frac{L_1}{L_2}} = \ddot{u}\]
+
+\section{Realistischer Transformator}
+Widerstände:
+\[R'_{Fe} = \frac{{U_1}^2}{P_0}\]
+\[\omega M = \frac{U_1}{\sqrt{{I_0}^2-(\frac{P_0}{U_1})^2}}\]
+\[R_1+R'_2 = \frac{P_k}{I^2_k}\]
+\[R_2 = \frac{1}{\ddot{u}^2}R'_2\]
+\[\rightarrow \underline{Z}_k = R_1+R'_2+j\omega (L_1+L'_2)= \frac{\underline{U}}{\underline{I_k}}\] ( $j\omega M$ und $R_{Fe}$ sind zu vernachlässigen)
+\[X_k = \sqrt{Z^2_k-R^2_k}\]
+\[\omega_1 L_1 \approx \ddot{u}^2 L_2\]
+Streuung:
+\[\sigma = 1- \frac{M^2}{L_1 L_2}\]
+
+\end{document}

@@ -1,0 +1,504 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{biblatex}
+\usepackage{a4wide}
+%\usepackage[babel,german=guillemets]{csquotes}
+%\bibliography{literatur} 
+\author{Maximilian Reuter}
+\title{Zusammenfassung Mathe 2 für ET SS12}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\part{Matrizen}
+\section{Lineare Gleichungssysteme}
+Koeffizientenmatrix A:
+\[A \cdot x = b\]
+Lösbarkeit: entweder nicht lösbar, unendlich viele Lösungen, oder genau eine Lösung.\\
+Homogenität: das LGS ist lösbar, wenn $b = 0$ ($A \cdot x = 0$). Homogene LGS sind immer lösbar (zb mit Nullvektor).\\
+Lösungswege:\\
+\begin{itemize}
+\item Gauss-Algorithmus
+\item wenn A eine invertierbare nxn Matrix ist: \[x_k = \frac{det(a_1, ...,a_{k-1},b,a_{k+1},...,a_n)}{det(a_1,a_2,...,a_n)}\]
+\end{itemize}
+
+\section{Lineare Abbildungen}
+Form: 
+\[A(x) = Ax \]
+
+\[A(x+y) = A(x) + A(y)\]
+\[A(\lambda x) = \lambda A(x)\]
+\[(A \circ B) (x) = A(B(x))=ABx\]
+, für alle $x \in R^n$\\\\
+$Kern(A)$ ist die Menge aller $x \in R^n$ mit $Ax = 0$.\\
+$Bild(A)$ ist die Menge aller $y = Ax \in R^m$ mit $x \in R^n$.\\
+$Rang(A)$ ist die maximale Anzahl linear unabhängiger Spalten- und Zeilenvektoren von A.\\
+Rangbeziehungen:
+\[Rang(A) = dim(Bild(A)) = dim(Bild(A^T))\]
+Spaltenanzahl $n$:
+\[dim(Kern(A))+Rang(A) = n\]
+\[Kern(A) = \{0\}\]
+\[Rang(A) = n\]
+ferner: \[Rang(A) + Rang(B) -n \leq Rang(AB) \leq min\{Rang(A), Rang(B)\}\].
+
+\section{Reguläre Matrizen}
+Satz: Eine Matrix A ist regulär wenn gilt: $Rang(A) = Spaltenanzahl\ von\ A$\\
+Satz: Das Produkt zweier quadratischer n-reihiger Matrizen A, B ist genau dann regulär, wenn jeder der Faktoren A, B regulär ist.\\
+Satz: Zu je zwei regulären n-reihigen Matrizen A, B gibt es genau eine Matrix X mit $AX = B$. X ist dabei eine reguläre n-reihige Matrix.\\
+
+\section{Inverse Matrizen}
+$AX = E$ X ist die zu A inverse Matrix, wenn A invertierbar ist ($X = A^{-1}$).\\
+Satz: Eine quadratische Matrix A ist genau dann invertierbar, wenn sie regulär ist. $A^{-1}$ ist dann regulär und von gleicher Zeilenzahl wie A. Außerdem ist eine nxn Matrix genau dann invertierbar wenn ihre Determinante ungleich Null ist. Es gilt:
+\[A^{-1} = \frac{1}{det(A)}A_{adj}\]
+\[A^{-1} A = AA^{-1} = E\]
+
+
+\subsection{Berechnung von Inversen}
+\[AX = E\] lösen!
+$\rightarrow$ A und E nebeneinander schreiben, durch Gauß-Jordan Umformung die A-Seite zur Einheitsmatrix umformen. Die E-Seite ist dann X.\\
+
+\section{Determinanten}
+2x2 und 3x3 Matrizen werden durch Jägerzaunmethode (Sarrussche Regel) gelöst. Die Determinante der Einheitsmatrix ist 1.\\
+\[det(A) = det(A^T)\]
+\[det(AB) = det(A) \cdot det(B)\]
+Vertauscht man zwei Spalten, so ändert die Determinante ihr Vorzeichen.\\
+Allgemein gilt: \[det(A) = \sum_{(v_1,v_2,...,v_n)} sgn(v_1,v_2,...,v_n) a_{1v_1}a_{2v_2}...a_{nv_n}\]
+Vorgehen:
+
+\begin{itemize}
+\item durch Gauss-Umformung und dann die Einträge der Hauptdiagonalen aufmultiplizieren
+\item durch entwicklung nach Zeilen (s. Skript S.129).
+\end{itemize}
+
+\section{Eigenwerte und Eigenvektoren}
+\subsection{Eigenwerte}
+Die komplexe Zahl $\lambda$ heißt ein Eigenwert von A, wenn es einen Vektor $ x \in C^n$ mit $x \neq 0$ gibt so dass\\
+\[Ax=\lambda x\] bzw \[(A-\lambda E)x=0\]
+erfüllt ist.\\
+Berechnung:\\
+\begin{enumerate}
+\item
+$A-\lambda E$ bilden
+\item
+det($A-\lambda E$) bestimmen
+\item
+Die Nullstellen des Polynoms sind die Eigenwerte (auch die komplexen). Doppelte NST $\rightarrow$ doppelter Eigenwert.
+\end{enumerate}
+
+\subsection{Eigenvektoren}
+Vorraussetzung: Eigenwerte bestimmt! Ist ein Eigenwert eine Nullstelle der Vielfachheit $m$, so besitzt A höchstens $m$ linear unabhängige Eigenvektoren zum Eigenwert $\lambda$.\\
+Vorgehen: $A-\lambda_x E$ lösen (LGS) $\rightarrow$ Eigenvektor!\\
+Nützliches:
+Für $\lambda_1,...\lambda_n \in C$ als Eigenwerte von $A = (a_{ij})_{n,n}$, gilt: 
+\begin{itemize}
+\item
+$\lambda_1 + \lambda_2 + ... + \lambda_n = a_{11} + a_{22} + ... + a_{nn}$.
+\item
+$\lambda_1\cdot\lambda_2\cdot...\cdot\lambda_n = det(A)$:
+\end{itemize}
+
+\section{Koordinatentransformation}
+\subsection{ähnlich, diagonalähnlich}
+Zwei Matrizen heißen ähnlich, wenn es ein C gibt für: $B = C^{-1}AC$\\.
+ähnliche Matrizen haben gleiche charakteristische Polynome und auch gleiche Eigenwerte.\\
+Zu jeder Matrix A gibt es eine Basis von n linear unabhängigen Eigenvektoren von A, wenn alle n Eigenwerte einfach sind. Falls sie nicht alle einfach sind, braucht eine Basis aus Eigenvektoren nicht zu existieren.
+
+Eine Matrix A heißt diagonalähnlich, wenn es eine invertierbare Matrix C gibt, so dass $C^{-1} AC$ eine Diagonalmatrix ist.\\
+Matrizen für die es eine Basis aus Eigenvektoren gibt sind diagonalähnlich $\rightarrow$ bei Darstellung in einer Basis aus den Eigenvektoren dar, erhält man eine Diagonalmatrix.
+
+\subsection{Orthonormalbasen}
+Orthonormalbasen sind Basen deren Vektoren senkrecht aufeinander stehen.
+Skalarprodukt der Vektoren $ x = (x_1, ..., x_n)^T$ und $y = (y_1,...y_n)^T$:
+\[<x,y> := x_1y_Y + ... + x_n y_n\]
+Zwei Vektoren heißen senkrecht, wenn \[<x,y> = 0\]\
+Die Norm des Vektors $ x = (x_1,...,x_n)^T$ ist die Zahl \[|x| := \sqrt{|x_1|^2+...+|x_n|^2}\]
+Beziehungen
+\begin{itemize}
+\item
+$<x,x> = |x|^2$
+\item
+$|x+y| \leq |x| + |y|$
+\item
+$|<x,y>| \leq |x| |x|$
+\end{itemize}
+
+\subsection{Schmidtsches Orthogonalisierungsverfahren}
+Sei $(b_1,...., b_m)$ eine beliebige Basis im $\mathbb{R}^n$ die in eine Orthonormalbasis umgewandelt werden soll:
+\[a_1 = \frac{b_1}{\left|b_1\right|}\]
+für alle weiteren $a_k$ mit $k= 2,3...,m$ berechnet man
+\[d_k = b_k - \sum\limits_{i=1}^{k-1}{(b_k \cdot a_i)a_i}\]
+daraus entsteht
+\[a_k = \frac{d_k}{\left|d_k\right|}\]
+.
+
+\section{Quadratische Gleichungen}
+Quadratische Gleichung für eine unbekannte $x$:
+\[ax^2+bx+c = 0\]
+Quadratische Gleichung für zwei unbekannte $x_1$ und $x_2$:
+\[a_{11}x_1^2 + 2 a_{12}x_1x_2 + a_{22}x_2^2 + b_1x_1 + b_2 x_2 +c = 0\]
+kompakter mit
+\[A= \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix},
+\begin{pmatrix} b_1 \\ b_2 \end{pmatrix} \text{und} 
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \]
+entsteht
+\[<Ax, x> + <b,x> + c = 0\]
+
+\subsection{Definit, semidefinit}
+\glqq Eine symmetrische Matrix $A \in \mathbb{R}^{n,n}$ heißt positiv definit (positiv semidefinit), wenn 
+\[<Ax, x> > 0 \text{(bzw. } <Ax, x> \geq 0 \text{) für alle } x \in \mathbb{R}^n, x\neq 0.\]
+Die Matrix $A$ heißt negativ definit (negativ semidefinit), wenn $-A$ positiv definit (positiv semidefinit) ist. Schließlich heißt A indefinit, wenn $<Ax, x>$ sowohl positiv als auch negative Werte annimmt.\grqq
+Bei einer symmetrischen Matrix $A \in \mathbb{R}^{n,n}$ die positiv definit ist, sind alle Eigenwerte und Unterdeterminanten von $A$ positiv.
+
+%\section{Hauptachsentransformation}
+%Lösung der quadratischen Gleichung
+%\[<Ax, x> + <b,x> +c = 0\]
+%durch umstellen ablesbar.
+%Vorgehen:
+%\begin{enumerate}
+%\item
+%Eigenwerte $\lambda_1, ... ,\lambda_n$ und ein zugehöriges System orthonormierter %Eigenvektoren $v_1,..., v_n$ von $A$ bestimmen. $C$ sei die orthogonale Matrix, mit %den Spaltenvektoren $v_1, ...,v_n$. Dann gilt:
+%\[C^TAC = diag(\lambda_1,...,\lambda_n)\]
+%\[C = \begin{pmatrix}y_1 \\ \vdots \\ y_n\end{pmatrix} = Cy\]
+
+%\item
+%daraus wird:
+%\[<ACy,Cy> + <b, Cy> +c = 0\]
+%bzw \[<C^TACy, y> + <C^Tb,y> + c = 0 \]
+%d.h.\[<diag(\lambda_1 , ... , \lambda_n)y,y> + <d,y> + c = 0 \]
+%mit \[d = (d_1, ..., d_n)^T = C^Tb\]
+%\end{enumerate}
+
+\section{Folgen und Reihen von Funktionen}
+\subsection{Basics}\label{frfbasics}
+Sei $(f_n)_{n\geq 1}$ eine Funktionenfolge auf $D$, so heißt die Folge der Partialsummen
+\[s_n(x) = \sum\limits_{i=1}^{n}{f_i(x)} = \sum\limits_{n=1}^{\infty}{f_n} ,\ x \in D,\]
+$Funktionenreihe$ auf D.
+
+\subsection{Punktweise Konvergenz}
+Die Funktionenfolge heißt punktweise konvergent auf $D$, wenn $f_n(x)$ für jedes $x$ konvergiert. Es existiert dann die Grenzfunktion
+\[f(x) = \lim\limits_{n \to \infty}{f_n(x)} \text{.}\]
+Es gilt also:
+\[\left| f_n(x) - f(x)\right| < \epsilon \text{ für alle } n \geq N(\epsilon, x)\]
+Die Funktionenreihe heißt punktweise konvergent auf $D$, wenn die in Kapitel \ref{frfbasics} genannte Funktionenreihe für jedes $x$ konvergiert. Es existiert dann die Summe der Funktionenreihe
+\[f(x) = \sum\limits_{n=1}^{\infty}{f_n(x)} \text{.}\]
+
+\subsection{Gleichmäßige Konvergenz}
+Die Funktionenfolge heißt gleichmäßig konvergent auf $D$, wenn sie unabhängig von $x$ punktweise konvergent ist (also in jedem Punkt $x$). \\
+Vorgehen: Folgende Ungleichung nach $n$ auflösen und sehen ob sie von $x$ abhängig ist!
+\[\left| f_n(x) - f(x)\right| < \epsilon \text{ für alle } n\geq N(\epsilon) \text{ und für alle } x \in D\]
+alternativ konvergiert eine Funktionenfolge gleichmäßig wenn gilt:
+\[\lim\limits_{n \to \infty}{\left|\left| f_n(x) - f(x)\right|\right| = 0}\]
+mit
+\[\left|\left| f\right|\right|_{\infty} = \sup\limits_{x \in D}{\left| f(x)\right|} \text{.}\]
+Die Funktionenreihe heißt auf $D$ gleichmäßig konvergent, wenn die Folge ihrer Partialsummen auf $D$ gleichmäßig konvergiert. D.h. unter anderem, wenn die Zahlenreihe
+\[\sum\limits_{n=1}^{\infty}{\left| \left| f_n\right| \right|_{\infty}}\]
+konvergiert, dann konvergiert die Funktionenreihe
+\[\sum\limits_{n=1}^{\infty}{f_n}\]
+gleichmäßig auf D. Das Majorantenkriterium ist hierbei sehr hilfreich:
+\[\left|f_n(x)\right| \geq c_n\]
+um zu sehen ob 
+\[\sum\limits_{n=1}^{\infty}{c_n}\]
+konvergiert.
+Aus der gleichmäßigen Konvergenz folgt die punktweise Konvergenz.
+
+\section{Potenzreihe}
+\subsection{Basics}
+\[\sum\limits_{n=0}^{\infty}{a_n(x-x_0)^n}\]
+mit den Koeffizienten $a_n$ und dem Entwicklungspunkt $x_0$. Durch Substitution mit $x-x_0$ erhält man
+\[\sum\limits_{n=0}^{\infty}{a_n(x)^n}\]
+
+\subsection{Konvergenzverhalten}\label{ptr}
+Konvergenzradius $r$ herausfinden (vorausgesetzt der Grenzwert ist vorhanden):
+\[r = \lim\limits_{n \to \infty}{\left|\frac{a_n}{a_{n+1}}\right|}\]
+oder
+\[r = \frac{1}{\lim\limits_{n \to \infty}{\sqrt[n]{\left| a_n \right|}}}\text{.}\]
+Die Potenzreihe konvergiert also für das Intervall $(x_0 - r, x_0 + r)$ und divergiert für $\left| x - x_0 \right| > r$. Die Randpunkte $\left| x_0 - r \right|$ müssen gesondert untersucht werden.
+
+\subsection{Eigenschaften im Konvergenzbereich}
+Im Konvergenzbereich gelten folgende Eigenschaften für $ f= \sum\limits_{n=0}^{\infty}{a_n(x-x_0)^n}$:
+\begin{itemize}
+\item
+Die Funktion $f$ ist stetig.
+\item
+Die Funktion $f$ ist differenzierbar und es gilt
+\[f'(x) = \sum\limits_{n=1}^{\infty}{n \cdot a_n x^{n-1}}\]
+mit dem Konvergenzradius $r$.
+\item
+Die Funktion $f$ ist integrierbar und es gilt
+\[\int\limits_0^x{f(t)dt} = \sum\limits_{n=0}^{\infty}{\frac{a_n}{n+1} \cdot x^{n+1}}\text{ für } x \in (-r,r)\]
+mit dem Konvergenzradius $r$.
+\end{itemize}
+Potenzreihen dürfen innerhalb ihres Konvergenzbereiches wie Polynomfunktionen behandelt werden (Addition, Subtraktion, Differentiation...).
+Die Potenzreihenentwicklung ist ein Sonderfall der Taylorreihenentwicklung (Kapitel  \ref{tlr}) mit dem Entwicklungspunkt 0.
+
+\section{Taylor-Reihe}\label{tlr}
+Formel für die Taylorreihe einer Funktion $f(x)$ im Entwicklungspunkt $a$:
+\[f(x) = \sum\limits_{n=0}^{\infty}{\frac{f^n(x_0)}{n!}(x-x_0)^n}\]
+Der Konvergenzradius der Taylorreihe wird analog zu dem der Potenzreihe (Kapitel \ref{ptr}) bestimmt.\\
+Restglied, das den Fehler (Abweichung der Taylorreihe von der Funktion f) beschreibt:
+\[R_n(x) = \frac{f^{n+1}(\vartheta x)}{(n+1)!}x^{n+1} \text{ mit } (0<\vartheta<1)\]
+
+\section{Fourier-Reihe}
+\subsection{Basics}
+Kriterium für Periodizität:
+\[f(x+T) = f(x)\]
+Methode aus jeder periodischen Funktion eine $2\pi$-periodische Funktion zu machen:
+\[F(x) = f(\frac{T}{2\pi}x)\]
+\[F(x+2\pi) = f(\frac{T}{2\pi} ( x + 2\pi))\]
+\[\omega = 2\pi f = \frac{2\pi}{p}\]
+Fourier-Reihe:
+\[y(t)=\frac{a_0}{2} + \sum\limits_{n=1}^{\infty}[a_n \cdot \cos{(n\omega_0 t)} + b_n \cdot \sin{(n \omega_0 t)}]\]
+
+\subsection{Vorraussetzung für die Entwicklung}
+\begin{enumerate}
+\item
+"Das Periodenintervall lässt sich in endlich viele Teilintervalle zerlegen, in denen $f(x)$ stetig und monoton ist" (Mathematik für Ingenieure, Lothar Papular 2007).
+\item
+Der beidseitige Grenzwert muss bei Unstetigkeitsstellen existieren.
+\end{enumerate}
+Die Fourier-Reihe konvergiert für alle $x \in \mathrm{R}$. In den stetigen Stellen stimmt die Fourier-Reihe mit $f(x)$ überein, an Unstetigkeitsstellen (Sprungstellen) bildet die Reihe das Mittel aus beiden Grenzwerten. 
+
+\subsection{Fourier-Entwicklung}
+\subsubsection{Fourierkoeffizienten}
+\[a_0 = \frac{1}{\pi} \int\limits_0^{2\pi}{f(x)dx}\]
+\[a_n = \frac{2}{p} \int\limits_0^p{f(x) \cos\omega n x \cdot dx}\]
+\[b_n = \frac{2}{p} \int\limits_0^p{f(x) \sin\omega n x \cdot dx}\]
+
+\subsubsection{Sonderfälle}
+Ist die Funktion $f$ gerade ($f(-x) = f(x)$), fallen alle Sinus-Teile weg ($b_n = 0$).\\
+Ist die Funktion $f$ ungerade ($f(-x) = -f(x)$), fallen alle Cosinus-Teile weg ($a_n = 0$).
+
+\section{Differentialrechnung für Funktionen in mehreren Veränderlichen}
+\subsection{Vektoroperationen}
+Skalarprodukt:
+\[<x,y> = \sum\limits_{i=1}^{n}{x_i \cdot y_i}\]
+Norm:
+\[\left|| x \right|| = \sqrt{<x,x>} \]
+
+\subsection{Mengen im $R^n$}
+Die $\epsilon$-Umgebung von $x_0$ ist
+\[U_\epsilon (x_0) = \{\left|| x- x_0 \right|| < \epsilon \}\text{ .}\]
+\begin{itemize}
+\item
+Ein Punkt $x_0$ heißt \glqq innerer Punkt\grqq der Menge M, wenn es eine $\epsilon$-Umgebung von $x_0$ gibt, die ganz in M liegt. Menge aller inneren Punkte: int $M$ oder $\underline{M}$.
+
+\item
+Ein Punkt $x_0$ heißt Randpunkt, wenn es in jeder $\epsilon$-Umgebung von $x_0$ mindestens einen Punkt aus $M$ und außerhalb von $M$ gibt. Menge aller Randpunkte: $\delta M$
+
+\item
+Abgeschlossene Hülle von M ($M  \cup \delta M$): $\overline{M}$ oder clos $M$
+
+\end{itemize}
+Die Menge $M \subseteq \mathrm{R}^n$ heißt
+\begin{enumerate}
+\item
+offen, wenn jeder Punkt von M ein innerer Punkt ist.
+\item
+abgeschlossen, wenn jeder Randpunkt von M zu M gehört.
+\item
+beschränkt, wenn es ein $R>0$ gibt, mit $M \subseteq U_R(0)$.
+\item
+kompakt, wenn M abgeschlossen und beschränkt ist.
+\end{enumerate}
+\subsection{Partielle Ableitung}
+Bei einer gemischten partiellen Ableitung $k$-ter Ordnung darf die Reihenfolge der einzelnen Differentiationsschritte vertauscht werden, wenn die partiellen Ableitungen $k$-ter Ordnung stetige Funktionen sind. (Papula, S.223)
+
+\subsection{Stetigkeit}
+$f(x,y)$ ist in $x_0$ stetig wenn gilt:
+\[\lim\limits_{(x,y) \to (x_0,y_0)}{f(x,y) = f(x_0,y_0)}\] 
+
+\subsection{Gradient}
+\[\text{grad } f = (\frac{df}{dx_1}, \frac{df}{dx_2}, ..., \frac{df}{dx_n}) = (f_{x_1}, f_{x_2}, ... f_{x_n})\]
+
+\subsection{Tangentialebene}
+Die Tangentialeben für die Funktion $f(x,y)$ im Punkt $P=(x_0, y_0, z_0)$ enthält alle angelegten Tangenten in diesem Punkt. Ebenengleichung:
+\[z-z_0 = f_x(x_0,y_0) \cdot (x-x_0) + f_y(x_0, y_0) \cdot (y-y_0)\]
+
+\subsection{Jacobimatrix/Funktionalmatrix}
+$G_1(x,y)$ und $G_2(x,y)$ seien stetig und differenzierbar, dann ist
+\[J_F(x,y) = \begin{pmatrix} \frac{dG_1}{dx} &\frac{dG_1}{dy} \\ \frac{dG_2}{dx} & \frac{dG_2}{dy}\end{pmatrix}\]
+die Jacobimatrix. Allgemein gilt:
+\[J_F(x^0) = \begin{pmatrix}
+	\frac{dF_1}{dx_1}(x^0) & \dots & \frac{dF_1}{dx_n}(x^0)\\
+	\vdots & & \vdots\\
+	\frac{dF_m}{dx_1}(x^0) & \dots & \frac{dF_m}{dx_n}(x^0)
+	\end{pmatrix}
+\]
+
+\subsection{Vollständiges Differential}
+Bei einer Änderung von $x_k$ um $dx_k$, verändert "sich bei linearer Approximation unter Vernachlässigung von Fehlern höherer Ordnung f um df." (Skript, S.188)
+\[dz = f_x(x_0, y_0) dx + f_y(x_0;y_0)dy = \sum\limits_{k=1}^{n=2}{\frac{df}{dx_k}}\]
+Der Fehler lautet:
+\[\Delta f = f(\hat{x}_1,...,\hat{x}_n) - f(x_1, ... ,x_n)\]
+Abschätzung ohne Fehler höherer Ordnung zu betrachten:
+\[\Delta f \approx \sum\limits_{k=1}^{n}{\left|\frac{df}{dx_k}\right| \left| \Delta x_k \right|}\]
+Falls Schranken für Messfehler bekannt sind ($\left| \Delta x_k \right| \leq s_k$) gilt:
+\[\left| \Delta f \right| \leq \sum\limits_{k=1}^{n}{\left| \frac{df}{dx_k}\right| \cdot s_k}\]
+
+\subsection{Kettenregel}
+\[(f \circ g)'(x) = f'(g(x)) \circ g'(x) \text{ bzw } J_{f \circ g}(x) = J_f(g(x)) J_g(x)\]
+
+\subsection{Richtungsableitung}
+Für die Ableitung von $f$ in Richtung von $\vec{v}$ gilt
+\[\frac{df}{d\vec{v}}(x) = \text{grad }f(x) \cdot \frac{\vec{v}}{\left|\vec{v}\right|} = \left|| (\text{grad } f)(x)\right|| \cdot \cos \varphi \]
+für den Winkel $\varphi$ zwischen (grad $f)(x)$ und $\vec{v}$.
+
+\subsection{Mittelwertsatz}
+Für reellwertige auf $\mathrm{R}^n$ Funkionen gilt für $a<b$ bei einem Punkt $\xi$:
+\[f(b) -f(a) = f'(\xi)\cdot (b-a)\]
+d.h. die Steigung der Verbindungsgerade von $a$ nach $b$ existiert in irgendeinem Punkt $\xi$ zwischen $a$ und $b$.\\
+Für die Integralrechnung gilt:
+\[\int\limits_{a}^{b}{f(x)dx} = (b-a) \cdot f(\xi)\]
+d.h. das Rechteck zwischen $a$ und $b$ mit der Höhe $f(\xi)$ hat die gleiche Fläche wie das Integral zwischen $a$ und $b$.\\
+
+\subsection{Satz von Taylor}
+Der Satz von Taylor ist der verallgemeinerte Mittelwertsatz.
+\[f(x+h) = \sum\limits_{\left| \alpha \right| \leq k}{\frac{1}{\alpha !}(D^\alpha f)(x)h^\alpha} + \sum\limits_{\left| \alpha \right| = k+1}{\frac{(D^\alpha f)(x+\tau h)}{\alpha !} h^\alpha}\]
+Die erste Summe steht für das Taylorpolynom der $k$-ten Ordnung, die zweite für das Restglied.
+\[f(x+h, y+k) = f(x,y) + f_x(x,y)h + f_y(x,y)k + R\]
+
+\subsection{Linearisierung einer Funktion}
+Linearisierung (Fläche) um den Arbeitspunkt $P(x_0,y_0,z_0)$:
+\[z-z_0 = f_x(x_0,y_0) \cdot (x-x_0) + f_y(x_0,y_0) \cdot (y-y_0)\]
+
+\subsection{Lokale Extrema}
+Bedingung:
+\begin{itemize}
+\item 
+Entweder $f_x = f_y = 0$ (grad $f(x_0, y_0) = (0,0)$)
+\item
+oder die partiellen Ableitungen existieren nicht (speziell bei Randpunkten).
+\end{itemize}
+Vorgehen:
+\begin{enumerate}
+\item
+Stationäre Punkte ($x_0, y_0$), dazu
+\[\text{grad } f(x_0,y_0) = (0,0)\]
+
+\item
+Determinante für stationäre Punkte berechnen
+\[D = \left| \begin{pmatrix} f_{xx} & f_{xy} \\
+						f_{xy} & f_{yy} \end{pmatrix}\right|
+						=f_{xx}f_{yy} - f^2_{xy}\]
+\item
+
+falls
+\begin{itemize}
+\item
+$D>0$ und $f_{xx} < 0$ (bzw $f_{yy}<0$) liegt ein relatives Maximum vor (Matrix ist negativ definit).
+\item
+$D>0$ und $f_{xx} > 0$ (bzw $f_{yy}>0$) liegt ein relatives Minimum vor (Matrix ist positiv definit).
+\item
+$D<0$ liegt kein Extremwert vor (Sattelpunkt)
+\item
+$D=0$ muß gesondert untersucht werden (Matrix ist semidefinit).
+\end{itemize}
+\item
+Für Extremwerte evtl noch das größte Maximum und das kleinste Minimum bestimmen!
+\end{enumerate}
+
+\subsection{Parameterabhängige Integrale}
+Sei
+\[ g(y) = \int\limits_a^b{f(x,y)dx}\text{ ,}\]
+dann gilt
+\begin{itemize}
+\item
+$g$ ist stetig auf [c,d].
+\item
+$g$ ist Riemann-integrierbar auf [c,d]
+\[\int\limits_c^d{g(y)dy} = \int\limits_c^d{\int\limits_a^b{f(x,y)dx dy}}= \int\limits_a^b{\int\limits_c^d{f(x,y)dydx}} \]
+\item
+Besitzt $f$ im Definitionsbereich eine stetige partielle Ableitung $\frac{df}{dy}$, ist $g$ auf $[c,d]$ differenzierbar.
+\[\frac{dg}{dy}=\frac{d}{dy}\int\limits_a^b{f(x,y)dx}= \int\limits_a^b{\frac{df}{dy}(x,y)dx}\]
+
+\end{itemize}
+
+\subsection{Implizite Funktionen und Umkehrabbildungen}
+Hat man $f(x,y) = 0$ mit $f(x_0, y_0)= 0$ und $f_y(x_0,y_0) \neq 0$ eine implizite Funktion $y = h(x)$ gegeben ($f(x,y(x))$, erhält man:
+\[y'(x) = -\frac{f_x}{f_y}\]
+und
+\[y'' = -\frac{f_y^2f_{xx} -2 f_xf_xf_{xy}+f_x^2f_{yy}}{f_y^3}\text{ .}\]
+Bedingungen für Umkehrfunkionen sind:
+\begin{itemize}
+\item
+$f$ sei einmal stetig partiell differenzierbar.
+\item
+$f'(x_0)$ sei invertierbar für ein $x_0$ (Umkehrabbildung ist eine Bijektion)
+\end{itemize}
+Dann gilt:
+\[g(x,y) = y-f(y)\]
+
+\subsection{Extrema unter Nebenbedingungen}
+Vorgehen bei gegebener Funktion $z = f(x,y)$ mit der Nebenbedingung $g(x,y)=0$:
+\begin{enumerate}
+\item
+Hilfsfunktion
+\[L(x,y,\lambda) = f(x,y) + \lambda \cdot g(x,y)\]
+bilden. $\lambda$ wird \glqq Langrangescher Multiplikator \grqq genannt.
+\item
+Partielle Ableitungen 1. Ordunung bilden und gleich Null setzen:
+\[L_x = f_x(x,y) + \lambda \cdot g(x,y) = 0\]
+\[L_y = f_y(x,y) + \lambda \cdot g(x,y) = 0\]
+\[L_{\lambda} = g(x,y) = 0\]
+Daraus die Koordinaten der gesuchten Extremwerte und $\lambda$ bestimmen.
+\end{enumerate}
+Lagrange Multiplikator ist nur als Hilfestellung da und sollte möglichst früh eliminiert werden.
+
+\section{Wegintegrale}
+Tangentialvektor von Weg $X$:
+\[T(\lambda) = X(t_0) + \lambda \dot{X}(t_0)\]
+Addition der Wege $X : [a,b] \rightarrow \mathrm{R}^n$ und $Y:[b,c]\rightarrow \mathrm{R}^n$  mit $Z = X \oplus Y$:
+\[Z:[a,c] \rightarrow \mathrm{R}^n \text{ , } Z(t) = \begin{cases} X(t) falls t \in [a,b] \\
+Y(t) falls t \in [b,c]\end{cases}\]
+Für entgegengesetzte Wege gilt:
+\[X^{-1} : [a,b] \rightarrow \mathrm{R}^n \text{ , } X^{-1} = X(a+b-t)\]
+Formel für das Wegintegral (im $\mathrm{R}^3$):
+\[\int\limits_X{F\cdot dX} = \int\limits_a^b{F(X(t)) \cdot \dot{X}(t) dt} = \int\limits_a^b{F(X(t)) \sqrt{\dot{x}^2(t) + \dot{y}^2(t) + \dot{z}^2(t)}}\]
+Dabei ist
+\[ ds = \dot{X}\cdot dt = \sqrt{\dot{x}^2(t) + \dot{y}^2(t) + \dot{z}^2(t)}\]
+das \glqq skalare Bogenelement \grqq.
+
+\subsection{Potential}
+Bedingung für die Existenz eines Potentials:
+\[\frac{dF_i}{dx_j} = \frac{dF_j}{dx_i} \text{ für } 1 \leq i <  j \leq n\]
+Wenn dann ein $\varphi$ mit
+\[F(x) = (\text{grad } \varphi)(x) \text{, für }x \in \mathrm{D}\]
+existiert, ist $\varphi$ das Potential von $F$.
+Das bedeutet:
+\begin{itemize}
+\item
+$F(x)$ ist ein Potentialfeld
+\item
+das Wegintegral ist wegunabhängig
+\item
+das Umlaufintegral $\oint{Fdx}$ ist $0$
+\end{itemize}
+Für die Potentialdifferenz gilt mit dem, die Punkte $Q$ und $P$ verbindenden Weg $K$:
+\[\int\limits_K{Fdx} = \varphi (Q) -\varphi (P)\]
+Vorgehen zur Bestimmung des Potentials $\varphi$ am Beispiel $F = (F_1, F_2)$:
+\begin{enumerate}
+\item
+Ist folgende Gleichung erfüllt?
+\[\frac{dF_1}{dx_2} = \frac{dF_2}{dx_1}\]
+\item
+\[\frac{d\varphi}{dx_1} = F_1 \text{, } \frac{d\varphi}{dx_2}=F_2\]
+\item
+daraus folgt
+\[\varphi(x_1,x_2) = \int{F_1(x_1,x_2)dx_1 + g(x_2)}\]
+mit der von $x_2$ abhängigen Integrationskonstante $g$.
+\item
+durch ableiten nach $x_2$ erhält man
+\[\frac{d\varphi}{dx_2} = \frac{d}{dx_2}\int{F_1(x_1, x_2)dx_1 + g'(x_2)} = F_2(x_1,x_2)\]
+
+\section{Integration im $\mathrm{R}^n$}
+Sei $I \subseteq \mathrm{R}^n $ abgeschlossen und $f : I \rightarrow R$ steig auf $I$, ist $f$ Riemann-integrierbar auf $I$ (vgl. Skript Satz 15.4):
+\[\int\limits_I{f(x,y) d(x,y)} = \int\limits_{I_y}{(\int\limits_{I_x}{f(x,y)dx})dy} = \int\limits_{I_x}{(\int\limits_{I_y}{f(x,y))dy})dx}\]
+
+
+
+\end{document}

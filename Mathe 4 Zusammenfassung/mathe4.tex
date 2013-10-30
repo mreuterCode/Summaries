@@ -1,0 +1,154 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{biblatex}
+\usepackage{a4wide}
+%\usepackage[babel,german=guillemets]{csquotes}
+%\bibliography{literatur} 
+\author{Maximilian Reuter}
+\title{Zusammenfassung Mathe 4 für ET SS13}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\part{Grundbegriffe Statistik und Wahrscheinlichkeitsrechnung}
+\section{Messreihen}
+\subsection{Empirische Verteilungsfunktion}
+Ordnet man eine Messreihe $x_1, x_2, x_3,...,x_n$ der Größe nach, so erhält man $x_{(1)} \leq x_{(2)} \leq ... \leq x_{(n)}$. Die empirische Verteilungsfunktion lautet:
+\[F(z,x_1,x_2,...,x_n) = \frac{\text{Zahl der $x_i$ mit $x_i \leq z$}}{n} = \frac{\text{max } \{\text{ i : } x_i \leq z \}}{n}\]
+Vorgehensweise für den Plot:
+\begin{enumerate}
+\item
+Alle $F(x_i)$ bilden.
+\item
+$F(x_i)$ als Punkte auftragen.
+\item
+Linien gehen von den Punkten aus waagrecht nach rechts bis auf Höhe des nächst höheren Punktes.
+\end{enumerate}
+
+\subsection{Klassenhäufigkeiten}
+Für die vorgegebene Unterteilung $a_1 \leq a_2 \leq a_3 \leq a_4$ bildet man $F(a_1) , F(a_2) - F(a_1),F(a_3)-F(a_2),F(a_4)-F(a_3)$ um die empirische Verteilung in den Intervallen zwischen den Zahlen $a_i$ zu erhalten. 
+
+\section{Lage und Streumaßzahlen}
+Gegeben sei eine Messreihe $x_1, x_2,...x_n$.
+\subsection{Lagemaßzahlen}
+Beispiele:
+\begin{itemize}
+\item
+Arithmetisches Mittel:
+\[ \bar{x} = \frac{1}{n} (x_1 + x_2 + ... + x_n)\]
+\item
+Median (das Element in der Mitte):
+\[\tilde{x} = \left \{ \begin{array}{cl} x_{(frac{n}{2})}, & \text{falls $n$ gerade}  \\ x_{(\frac{n+1}{2})}, & \text{falls $n$ ungerade} \end{array} \right. \]
+\item
+p-Quantil ($0<p<1$):
+\[x_p = \left \{ \begin{array}{cl} x_{(np)}, & \text{falls $np$ ganzzahlig} \\ x_{[np]+1}, & \text{falls $np$ nicht ganzzahlig}\end{array} \right.\]
+\item
+$\alpha$-gestutztes Mittel ($0 < \alpha < 0,5$):
+\[\bar{x}_{\alpha} = \frac{1}{n-2k} (x_{(k+1)} + ... + x_{(n-k)}), \ k = n\alpha\]
+\end{itemize}
+
+\subsection{Streuungsmaße}
+Beispiele:
+\begin{itemize}
+\item
+Empirische Varianz oder empirische Stichprobenvarianz:
+\[s^2 = \frac{1}{n-1} \sum\limits_{i=1}^{n}{(x_i -\bar{x})^2} = \frac{1}{n-1} \sum\limits^{n}_{i=1}{(x_i^2-n \bar{x}^2)}\]
+\item
+Empirische Streuung:
+\[s = \sqrt{\frac{1}{n-1} \sum\limits^{n}_{i=1}{(x_i - \bar{x})^2}}\]
+\item
+Spannweite:
+\[ v = x_{(n)} - x_{(1)}\]
+\item
+Quartilabstand:
+\[q = x_{0,75} - x_{0,25}\]
+\end{itemize}
+
+\subsection{Zweidimensionale Messreihen}
+Siehe oben, beide Variablen $x_i$ und $y_i$ werden getrennt betrachtet. Weiterhin:
+\begin{itemize}
+\item
+Empirische Kovarianz:
+\[s_{xy} = \frac{1}{n-1} \sum\limits^{n}_{i=1}{(x_i - \bar{x})(y_i - \bar{y})} = \frac{1}{n-1} (\sum\limits^{n}_{i = 1}{x_i y_i - n \bar{x} \bar{y})}\]
+\item
+Empirischer Korrelationskoeffizient:
+\[r_{xy} = \frac{s_{xy}}{s_x \cdot s_y}, \text{ es gilt immer $-1 \leq r_{xy} \leq 1$.}\]
+\end{itemize}
+
+\subsection{Regressionsgerade}
+Die Regressionsgerade lautet:
+\[y = \hat{a} \cdot x + \hat{b}\]
+mit
+\[\hat{a} = \frac{\sum^n_{i=1}{ x_i y_i - n \bar{x} \bar{y}}}{\sum^n_{i=1}{x^2_i - n \bar{x}^2}} = \frac{s_{xy}}{s^2_x}, \ \hat{b}=\bar{y}-a \bar{x}\]
+. Die Abweichungen der Punkte $(x_i, y_i)$ in vertikaler Richtung heißen Residuen:
+\[r_i = y_i -\hat{a}x_i-\hat{b}, \ i = 1,..,n\]
+Residuenquadrat:
+\[\sum\limits^n_{i=1}{r^2_i} = \sum\limits^n_{i=1}{(y_i - \bar{y})^2 (1-r^2_{xy})}\]
+\glqq Das Vorzeichen von $r_{xy}$ gibt den Trend der Abhängigkeit der $y$-Werte von den $x$-Werten an":
+\begin{itemize}
+\item
+$r_{xy} > 0$: Die Gerade steigt streng monoton.
+\item
+$r_{xy} < 0$: Die Gerade fällt streng monoton.
+\item
+$r_{xy} = 0$: Die Gerade verläuft horizontal.
+\item
+$r_{xy} = 1$ oder $-1$: Alle Punkte liegen auf der Geraden.
+\end{itemize}
+
+\section{Zufallsexperimente und Wahrscheinlichkeit}
+\subsection{Zufallsexperimente}
+$\Omega$ ist die Ergebnismenge (Stichprobenmenge) und $\omega$ ein einzelnes Ergebnis (Stichprobe). $A \subset \Omega$ heißen Ereignisse. \glqq Ein Ereignis $A \subset \Omega$ tritt ein, wenn ein Ergebnis $\omega \in A$ beobachtet wird."\\
+$A \cup B$ tritt ein, wenn ein Ereignis $\omega$ mit $\omega \in A$ oder $\omega \in B$ ($\omega \in A \cup B$).\\
+$A \cap B$ falls $\omega \in A$ und $\omega \in B$ ($\omega \in A \cap B$).
+
+\subsection{Wahrscheinlichkeit}
+Zusammenhänge:
+\[P(\emptyset) = 0\]
+\[0 \leq P(A) \leq 1\]
+\[P(A^C) = 1 - P(A)\]
+\[A \subset B \rightarrow P(A) - P(B)\]
+\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+\[P(A_1 \cup ... \cup A_2) = \sum\limits_{i=1}^n{P(A_i)}, \text{ falls $A_1,...,A_n$ paarweise unvereinbar (Additivität).}\]
+Die Annahme gleicher Wahrscheinlichkeit für die Elementarereignisse $A_i$ heißt Laplace-Annahme.
+
+\subsection{Elementare Formeln der Kombinatorik}
+\begin{itemize}
+\item
+Geordnete Probe mit Wiederholungen: $k$-Tupel ($x_1,...,x_k$), Formel für die Anzahl der Möglichkeiten beim ziehen von $n$ Proben: $n^k$
+\item
+Geordnete Probe ohne Wiederholungen: $k$-Tupel ($x_1,...,x_k$), Anzahl geordneter Proben ohne Wiederholungen: $n(n-1)(n-2)...(n-k+1)$, falls $n=k$: $n!$
+\item
+Lotto: Man zieht $k$ zahlen aus $n$ möglichen, Reihenfolge egal ($\begin{pmatrix} n \\ k \end{pmatrix}$): $\frac{n!}{k!\cdot (n-k)!}$
+\end{itemize}
+
+\section{Bedingte Wahrscheinlichkeit, Unabhängigkeit}
+\subsection{Bedingte Wahrscheinlichkeit}
+Bedingte Wahrscheinlichkeit $P(A | B)$ bedeutet, $P(A)$ unter der Bedingung, dass $B$ eintritt.
+\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]
+Satz von Bayes:
+\[P(A_i|B)=\frac{P(A_i) \cdot P(B|A_i)}{\sum^n_{k=1}{P(A_k) \cdot P(B|A_k)}}\]
+
+\subsection{Unabhängigkeit}
+Zwei Ereignisse $A$ und $B$ heißen unabhängig, wenn
+\[P(A \cap B) = P(A) \cdot P(B)\]
+
+\section{Zufallsvariablen}
+
+\subsection{Binomialverteilung}
+\[P(X=i) = \left(\begin{array}{c} n \\ i \end{array}\right) p^i(1-p)^{n-i}, i = 0,1,...,n.\]
+
+\subsection{Poissonverteilung}
+\[P(X = i) = \frac{\lambda^i}{i!} e^{-\lambda}, i=0,1,2,...\]
+
+\section{Random}
+\subsection{Tschebyscheff}
+\[ P(\left| X - E(X)\right| \geq c) \leq \frac{Var(X)}{c^2}, \ c > 0\]
+
+
+\end{document}
