@@ -1,2 +1,0 @@
-\select@language {german}
-\contentsline {part}{I\hspace {1em}bla}{2}
